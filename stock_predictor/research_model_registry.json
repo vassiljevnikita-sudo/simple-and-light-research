@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.3",
+  "updated_at": "2026-07-31",
+  "paper_trading_only": true,
+  "documentation_authority": [
+    "stock_predictor/research_model_registry.json",
+    "CURRENT_MODEL.md",
+    "DOCUMENTATION_AUTHORITY.md",
+    "agent.md",
+    "next_version.md"
+  ],
+  "current_v4_candidate_id": "V4_N25_T212_RESEARCH_V1",
+  "current_execution_candidate_id": "EXEC_N25_DUAL_VENUE_RESEARCH_V1",
+  "current_v45_candidate_id": "V45_N25_HYBRID_STOP_RESEARCH_V1",
+  "current_v5_research_id": "V5_N25_SHADOW_V1",
+  "benchmark_policy": {
+    "benchmark_id": "MSCI_WORLD_IMPLEMENTABLE_PROXY_V1",
+    "benchmark_concept": "investable_msci_world_etf_implementation_not_the_index_itself",
+    "target_product_annual_ter_fraction": 0.002,
+    "ter_application_rule": "subtract_only_when_source_series_does_not_already_include_fund_expenses",
+    "implementation_module": "stock_predictor/benchmark_policy.py",
+    "trading_costs_modeled_separately": true,
+    "double_counting_forbidden": true,
+    "historical_n25_results_recomputed": false
+  },
+  "current_v4_operational_stack": {
+    "selection_model_id": "V4_N25_T212_RESEARCH_V1",
+    "execution_policy_id": "EXEC_N25_DUAL_VENUE_RESEARCH_V1",
+    "benchmark_policy_id": "MSCI_WORLD_IMPLEMENTABLE_PROXY_V1",
+    "overlay_model_id": "V45_N25_HYBRID_STOP_RESEARCH_V1",
+    "v5_research_extension_id": "V5_N25_SHADOW_V1"
+  },
+  "models": {
+    "V4_N25_T212_RESEARCH_V1": {
+      "family": "V4",
+      "role": "current_research_candidate",
+      "short_name": "N25",
+      "status": "frozen_selection_candidate_pending_full_historical_validation",
+      "portfolio": {
+        "position_count": 25,
+        "active_fraction_when_regime_enabled": 1.0,
+        "weighting": "equal_weight",
+        "review_interval_sessions_approx": 15,
+        "rank_buffer_max_rank": 38,
+        "rebalance_band_fraction": 0.1,
+        "minimum_voluntary_change_fraction": 0.05
+      },
+      "regime_filter": {
+        "benchmark_lookback_sessions": 20,
+        "required_return_operator": ">",
+        "required_return_value": 0.0
+      },
+      "historical_candidate_execution_assumption": {
+        "assumption_id": "GERMAN_EUR_PROXY_COST_V1",
+        "fixed_order_commission_eur": 0.0,
+        "primary_stock_roundtrip_cost_fraction": 0.002,
+        "stress_stock_roundtrip_cost_fraction": 0.003,
+        "world_etf_roundtrip_cost_fraction": 0.0005,
+        "world_etf_annual_ter_fraction": 0.002,
+        "ter_must_not_be_subtracted_if_already_embedded_in_price_series": true,
+        "preferred_order_type": "limit",
+        "venue_proxy": "same_isin_german_eur_listing"
+      },
+      "current_execution_policy_id": "EXEC_N25_DUAL_VENUE_RESEARCH_V1",
+      "benchmark_policy_id": "MSCI_WORLD_IMPLEMENTABLE_PROXY_V1",
+      "historical_results_recomputed_for_current_execution_policy": false,
+      "historical_results_recomputed_for_benchmark_ter": false
+    },
+    "EXEC_N25_DUAL_VENUE_RESEARCH_V1": {
+      "family": "EXECUTION",
+      "role": "current_execution_research_candidate",
+      "base_selection_model_id": "V4_N25_T212_RESEARCH_V1",
+      "status": "implemented_contract_pending_intraday_and_forward_validation",
+      "implementation_module": "stock_predictor/n25_dual_venue.py",
+      "eligible_routes": {
+        "US_PRIMARY_USD": {
+          "instrument_rule": "us_primary_listing",
+          "currency": "USD",
+          "market_data_requirement": "consolidated_sip_trades_quotes_and_intraday_bars",
+          "fx_conversion": {
+            "broker_fee_fraction_per_conversion": 0.0015,
+            "applies_only_when_currency_conversion_occurs": true,
+            "modes": {
+              "EUR_AUTO_CONVERT_PER_ORDER": {
+                "approx_roundtrip_fx_fee_fraction_if_buy_and_sell_are_converted": 0.003
+              },
+              "PERSISTENT_USD_BALANCE": {
+                "stock_orders_paid_and_settled_in_usd": true,
+                "per_stock_trade_fx_fee": 0.0,
+                "cash_conversion_cost_must_be_allocated_across_supported_trades": true
+              }
+            }
+          }
+        },
+        "GERMAN_EUR_SAME_ISIN": {
+          "instrument_rule": "same_isin_as_us_company",
+          "currency": "EUR",
+          "allowed_venues": [
+            "XETRA",
+            "GETTEX_EXPLICITLY_APPROVED"
+          ],
+          "market_data_requirement": "exact_listing_intraday_trades_quotes_when_available"
+        }
+      },
+      "comparison_policies": [
+        "ALWAYS_GERMAN_EUR",
+        "ALWAYS_US_AUTO_FX",
+        "ALWAYS_US_PERSISTENT_USD",
+        "EX_ANTE_MIN_EXPECTED_ALL_IN_COST"
+      ],
+      "decision_rules": {
+        "route_chosen_before_order_submission": true,
+        "realized_future_price_or_fill_information_forbidden": true,
+        "same_signal_and_target_weight_used_for_all_route_comparisons": true,
+        "route_may_vary_by_instrument_date_order_size_and_side": true,
+        "fallback_when_neither_route_passes": "NO_TRADE_OR_DEFER"
+      },
+      "validation": {
+        "selection_parameters_remain_frozen": true,
+        "route_model_trained_only_on_prior_data": true,
+        "purged_time_split_required": true,
+        "final_locked_holdout_required": true,
+        "forward_shadow_quotes_and_fills_required": true,
+        "alpaca_and_massive_are_data_quality_cross_checks_not_independent_market_holdouts": true
+      }
+    },
+    "V45_N25_HYBRID_STOP_RESEARCH_V1": {
+      "family": "V4.5",
+      "role": "current_overlay_candidate",
+      "base_model_id": "V4_N25_T212_RESEARCH_V1",
+      "execution_policy_id": "EXEC_N25_DUAL_VENUE_RESEARCH_V1",
+      "benchmark_policy_id": "MSCI_WORLD_IMPLEMENTABLE_PROXY_V1",
+      "status": "implemented_not_historically_data_validated",
+      "control_variant": "NONE",
+      "stop_parameters_released": false
+    },
+    "V5_N25_SHADOW_V1": {
+      "family": "V5",
+      "role": "current_v5_research_extension",
+      "base_model_id": "V4_N25_T212_RESEARCH_V1",
+      "execution_policy_id": "EXEC_N25_DUAL_VENUE_RESEARCH_V1",
+      "benchmark_policy_id": "MSCI_WORLD_IMPLEMENTABLE_PROXY_V1",
+      "status": "implemented_not_runtime_or_holdout_validated",
+      "portfolio_config": "stock_predictor/v5/portfolio_policy_config.json",
+      "promotion_eligible": false
+    },
+    "V4_FROZEN_10K_LEGACY": {
+      "family": "V4",
+      "role": "historical_legacy_baseline",
+      "status": "immutable",
+      "must_not_be_called_current_candidate": true,
+      "portfolio": {
+        "position_count": 3,
+        "maximum_active_fraction": 0.5,
+        "maximum_active_capital_eur": 5000.0,
+        "minimum_voluntary_order_eur": 500.0,
+        "rebalance_band_fraction": 0.25,
+        "remainder_asset": "MSCI_WORLD_PROXY"
+      }
+    }
+  },
+  "data_status": {
+    "alpaca_minute_batches_present": [
+      0,
+      1,
+      2,
+      3,
+      6,
+      7,
+      8
+    ],
+    "known_missing_or_not_integrated_batches": [
+      4,
+      5
+    ],
+    "full_point_in_time_validation_ready": false,
+    "promotion_blocked": true,
+    "reason": "INCOMPLETE_CANONICAL_POINT_IN_TIME_AND_DUAL_VENUE_INTRADAY_COVERAGE"
+  },
+  "naming_rules": {
+    "bare_v4_allowed_only_as_family_term": true,
+    "backtest_artifacts_must_include_model_id": true,
+    "execution_reports_must_include_execution_policy_id": true,
+    "benchmark_reports_must_state_source_series_and_ter_treatment": true,
+    "v45_artifacts_must_include_base_model_id_and_execution_policy_id": true,
+    "candidate_change_requires_registry_commit": true,
+    "legacy_results_must_not_be_relabelled": true,
+    "historical_german_proxy_results_must_not_be_relabelled_as_dual_venue_results": true,
+    "benchmark_ter_must_not_be_double_counted": true
+  }
+}

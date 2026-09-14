@@ -1,0 +1,220 @@
+{
+  "active_sets": 495,
+  "bucket_combinations": {
+    "MID_LONG": 17,
+    "SHORT_LONG": 4,
+    "SHORT_MID": 58,
+    "SHORT_MID_LONG": 55
+  },
+  "concentration": {
+    "P1|HORIZON_NORMALIZED_EXCESS": {
+      "top_1_episode_share": 0.6202603031595982,
+      "top_1_ticker_share": 0.9785271986015652,
+      "top_3_episode_share": 1.0,
+      "top_3_ticker_share": 1.0
+    },
+    "P1|RAW_EXCESS": {
+      "top_1_episode_share": 0.9641570461137337,
+      "top_1_ticker_share": 1.0,
+      "top_3_episode_share": 1.0,
+      "top_3_ticker_share": 1.0
+    },
+    "P2|HORIZON_NORMALIZED_EXCESS": {
+      "top_1_episode_share": 0.4416775932498249,
+      "top_1_ticker_share": 0.6316383698555771,
+      "top_3_episode_share": 0.9765129620751279,
+      "top_3_ticker_share": 1.0
+    },
+    "P2|RAW_EXCESS": {
+      "top_1_episode_share": 0.6692009702753858,
+      "top_1_ticker_share": 0.6358544603060196,
+      "top_3_episode_share": 0.9428702754907634,
+      "top_3_ticker_share": 1.0
+    },
+    "P3|HORIZON_NORMALIZED_EXCESS": {
+      "top_1_episode_share": 0.5548290350600902,
+      "top_1_ticker_share": 0.9351315649783196,
+      "top_3_episode_share": 0.9730606540430838,
+      "top_3_ticker_share": 1.0
+    },
+    "P3|RAW_EXCESS": {
+      "top_1_episode_share": 0.564231666713113,
+      "top_1_ticker_share": 0.9062936824491588,
+      "top_3_episode_share": 0.9895510147269396,
+      "top_3_ticker_share": 1.0
+    },
+    "P4|HORIZON_NORMALIZED_EXCESS": {
+      "top_1_episode_share": 0.4746961627411408,
+      "top_1_ticker_share": 0.9243710660258453,
+      "top_3_episode_share": 0.9633366810835211,
+      "top_3_ticker_share": 1.0
+    },
+    "P4|RAW_EXCESS": {
+      "top_1_episode_share": 0.6797013756617595,
+      "top_1_ticker_share": 0.9520065370914519,
+      "top_3_episode_share": 0.9874126354769455,
+      "top_3_ticker_share": 1.0
+    },
+    "P5|HORIZON_NORMALIZED_EXCESS": {
+      "top_1_episode_share": 0.46094505108785505,
+      "top_1_ticker_share": 0.6401008201184085,
+      "top_3_episode_share": 0.9898850215387512,
+      "top_3_ticker_share": 1.0
+    },
+    "P5|RAW_EXCESS": {
+      "top_1_episode_share": 0.7399237368486921,
+      "top_1_ticker_share": 0.8918464729924647,
+      "top_3_episode_share": 1.0,
+      "top_3_ticker_share": 1.0
+    },
+    "P6|HORIZON_NORMALIZED_EXCESS": {
+      "top_1_episode_share": 0.46094505108785505,
+      "top_1_ticker_share": 0.6401008201184085,
+      "top_3_episode_share": 0.9898850215387512,
+      "top_3_ticker_share": 1.0
+    },
+    "P6|RAW_EXCESS": {
+      "top_1_episode_share": 0.7399237368486921,
+      "top_1_ticker_share": 0.8918464729924647,
+      "top_3_episode_share": 1.0,
+      "top_3_ticker_share": 1.0
+    },
+    "P7|HORIZON_NORMALIZED_EXCESS": {
+      "top_1_episode_share": 0.52894055266801,
+      "top_1_ticker_share": 0.9778671703446109,
+      "top_3_episode_share": 0.9902045695567764,
+      "top_3_ticker_share": 1.0
+    },
+    "P7|RAW_EXCESS": {
+      "top_1_episode_share": 0.5202672105927657,
+      "top_1_ticker_share": 0.8873330082975226,
+      "top_3_episode_share": 0.9903651908564287,
+      "top_3_ticker_share": 1.0
+    },
+    "P8|HORIZON_NORMALIZED_EXCESS": {
+      "top_1_episode_share": 0.6202603031595982,
+      "top_1_ticker_share": 0.9785271986015652,
+      "top_3_episode_share": 1.0,
+      "top_3_ticker_share": 1.0
+    },
+    "P8|RAW_EXCESS": {
+      "top_1_episode_share": 0.9641570461137337,
+      "top_1_ticker_share": 1.0,
+      "top_3_episode_share": 1.0,
+      "top_3_ticker_share": 1.0
+    }
+  },
+  "contract_checks_all_pass": true,
+  "effective_test_months": 19,
+  "ensemble_effect": "NO_MEAN_ENSEMBLE_GAIN",
+  "event_count": 10836,
+  "factory_retraining": false,
+  "highest_selected_excess_pool": "P3",
+  "holdout_boundary": "2026-07-25 00:00:00",
+  "holdout_opened": false,
+  "lowest_regret_pool": "P3",
+  "manifest_code_sha": "66b8f1d4c3f1a2eeebf4a2d9f2fb2f6c3d30294be354a36945ba1fb1121a3fd2",
+  "models_retrained": false,
+  "paired_sets_per_pool_target": 124,
+  "pairwise_vs_regression": "PAIRWISE_HIGHER_MEAN",
+  "peak_rss_gb": 0.22040176391601562,
+  "pool_catalog": {
+    "P0": {
+      "kind": "score_only",
+      "label": "P0_SCORE_ONLY",
+      "tie_fallback": "score_only"
+    },
+    "P1": {
+      "alpha": 1.0,
+      "fit_intercept": true,
+      "kind": "regression",
+      "label": "P1_RIDGE_REGRESSION",
+      "model": "RIDGE"
+    },
+    "P2": {
+      "kind": "regression",
+      "l2_regularization": 1.0,
+      "label": "P2_HGB_REGRESSION",
+      "learning_rate": 0.05,
+      "max_iter": 100,
+      "max_leaf_nodes": 15,
+      "model": "HGB",
+      "random_state": 17
+    },
+    "P3": {
+      "C": 1.0,
+      "fit_intercept": false,
+      "kind": "pairwise",
+      "label": "P3_RIDGE_PAIRWISE",
+      "model": "LOGISTIC_LINEAR",
+      "solver": "liblinear"
+    },
+    "P4": {
+      "kind": "pairwise",
+      "l2_regularization": 1.0,
+      "label": "P4_HGB_PAIRWISE",
+      "learning_rate": 0.05,
+      "max_iter": 100,
+      "max_leaf_nodes": 15,
+      "model": "HGB_CLASSIFIER",
+      "random_state": 17
+    },
+    "P5": {
+      "combination": "mean_in_set_rank",
+      "kind": "regression_ensemble",
+      "label": "P5_REGRESSION_RANK_ENSEMBLE",
+      "weights": [
+        0.5,
+        0.5
+      ]
+    },
+    "P6": {
+      "combination": "mean_in_set_rank_percentile",
+      "kind": "regression_ensemble",
+      "label": "P6_REGRESSION_NORMALIZED_SCORE_ENSEMBLE",
+      "weights": [
+        0.5,
+        0.5
+      ]
+    },
+    "P7": {
+      "combination": "mean_pairwise_probability",
+      "kind": "pairwise_ensemble",
+      "label": "P7_PAIRWISE_ENSEMBLE",
+      "weights": [
+        0.5,
+        0.5
+      ]
+    },
+    "P8": {
+      "alpha": 1.0,
+      "features": "BASE_PLUS_SHAPE",
+      "kind": "regression",
+      "label": "P8_SCORE_SHAPE_ONLY",
+      "model": "RIDGE"
+    },
+    "P9": {
+      "alias_of": [
+        "P1",
+        "P2"
+      ],
+      "independent": false,
+      "kind": "feature_alias",
+      "label": "P9_FULL_TRUE_CONSENSUS"
+    }
+  },
+  "pool_count_declared": 10,
+  "pool_count_independent": 8,
+  "predictions_regenerated": false,
+  "primary_diagnosis": "G_SCORE_ONLY_REMAINS_BEST_ROBUST_SELECTOR",
+  "recommendation": "retain Score-only and stop selector promotion research until more independent evidence exists",
+  "ridge_vs_hgb": "HGB_HIGHER_MEAN",
+  "robust_gate_pools": [],
+  "runtime_seconds": 138.06679209996946,
+  "score_shape_vs_full_consensus": "FULL_CONSENSUS_HIGHER_MEAN",
+  "selector_authority": false,
+  "status": "PAIRED_SELECTOR_TOURNAMENT_COMPLETE",
+  "three_bucket_sets": 55,
+  "true_consensus_sets": 134,
+  "two_bucket_sets": 79
+}

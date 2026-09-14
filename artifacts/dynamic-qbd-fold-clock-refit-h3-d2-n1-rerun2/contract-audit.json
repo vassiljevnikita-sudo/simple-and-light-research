@@ -1,0 +1,44 @@
+{
+  "assessment_count": 41,
+  "checks": {
+    "a_calibration_resolution_count_one": true,
+    "a_fresh_fit_count_one": true,
+    "a_model_artifact_count_one": true,
+    "all_arms_identical_evaluation_dates": true,
+    "all_result_metrics_finite": true,
+    "all_schedule_calibration_values_finite": true,
+    "f_between_refits_model_and_calibration_frozen": true,
+    "f_calibration_count_equals_fresh_fit_count": true,
+    "f_new_model_artifact_at_each_refit": true,
+    "f_refits_every_fold_expansion_once": true,
+    "f_refits_only_on_evidence_expansion": true,
+    "final_holdout_opened_false": true,
+    "identical_portfolio_cost_benchmark_contract": true,
+    "m_calibration_resolution_count_equals_assessments": true,
+    "m_distinct_model_artifact_count_equals_assessments": true,
+    "m_fresh_fit_count_equals_assessments": true,
+    "promotion_allowed_false": true,
+    "recipe_identity_constant_all_arms": true,
+    "same_initial_model_artifact_a_f_m": true,
+    "same_initial_recipe_a_f_m": true,
+    "same_initial_threshold_a_f_m": true,
+    "same_initial_top_fraction_a_f_m": true
+  },
+  "f_evidence_expansion_count": 7,
+  "f_refit_count": 7,
+  "initial_model_artifact_ids": {
+    "A_FROZEN_MODEL_FROZEN_CALIBRATION": "b9800076bf7f7979c4ea3e8c3f3893ff6a220e4841f151e67128426015016333",
+    "F_FOLD_CLOCK_REFIT_FROZEN_BETWEEN_FOLDS": "b9800076bf7f7979c4ea3e8c3f3893ff6a220e4841f151e67128426015016333",
+    "M_MONTHLY_REFIT_FROZEN_RECIPE": "b9800076bf7f7979c4ea3e8c3f3893ff6a220e4841f151e67128426015016333"
+  },
+  "initial_thresholds": {
+    "A_FROZEN_MODEL_FROZEN_CALIBRATION": 0.018312770044789324,
+    "F_FOLD_CLOCK_REFIT_FROZEN_BETWEEN_FOLDS": 0.018312770044789324,
+    "M_MONTHLY_REFIT_FROZEN_RECIPE": 0.018312770044789324
+  },
+  "initial_top_fractions": {
+    "A_FROZEN_MODEL_FROZEN_CALIBRATION": 0.01,
+    "F_FOLD_CLOCK_REFIT_FROZEN_BETWEEN_FOLDS": 0.01,
+    "M_MONTHLY_REFIT_FROZEN_RECIPE": 0.01
+  }
+}

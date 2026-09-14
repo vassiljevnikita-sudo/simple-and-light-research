@@ -1,0 +1,44 @@
+{
+  "abc": {
+    "assessment_month_count": 119,
+    "plateau_count": 55,
+    "policy_count": 2790,
+    "policy_variants_clustered_within_plateau": true,
+    "primary_statistical_unit": "ASSESSMENT_MONTH",
+    "recalibration_block_bootstrap": {
+      "mean": 0.0023593941685055623,
+      "q05": -0.0020584216868322334,
+      "q95": 0.007005469681617546,
+      "seed": 17
+    },
+    "recalibration_incremental_monthly_excess_median": 0.0,
+    "refit_block_bootstrap": {
+      "mean": -0.004462332046847324,
+      "q05": -0.0097686807727044,
+      "q95": -0.0002873084827727274,
+      "seed": 19
+    },
+    "refit_incremental_monthly_excess_median": 0.0,
+    "rolling_recalibration_promoted": false,
+    "rolling_refit_promoted": false
+  },
+  "capital_allocation_authority": false,
+  "family_count": 2790,
+  "final_holdout_opened": false,
+  "gate1_horizon_status": {
+    "1": "GATE1_1M_FAIL",
+    "3": "GATE1_3M_FAIL"
+  },
+  "gate1_status": "GATE1_FAIL_NO_PERFORMANCE_SELECTOR_AUTHORITY",
+  "gate1b_status": "GATE1B_FAIL",
+  "gate2_status": "GATE2_FAIL",
+  "gate3_status": "GATE3_FAIL",
+  "holdout_contract": "PROSPECTIVE_FROM_2026_07_25",
+  "initial_pre_holdout_state_hash": "2168e3331da17084736755c018bcd12af772d7ba54a9a18913a0af0db8745e81",
+  "legacy_router_capital_authority": false,
+  "router_mode": "SHADOW_RESEARCH_ONLY",
+  "scientific_selection_evidence_supported": false,
+  "selector_authority_target_months": [],
+  "shadow_selection_evidence_target_months": [],
+  "status": "DYNAMIC_QBD_DEVELOPMENT_COMPLETE"
+}

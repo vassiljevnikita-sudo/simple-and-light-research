@@ -1,0 +1,649 @@
+{
+  "authority": "SHADOW_ONLY_NO_PROMOTION_NO_HOLDOUT",
+  "causal_recipe_selection_timeline": [
+    {
+      "activation_cutoff": "2020-08-31",
+      "candidate_id": "300b90caae2472a6",
+      "fold_count": 2,
+      "fold_ids": [
+        "WF_000_2019-08-09_2020-02-07",
+        "WF_001_2020-02-10_2020-08-07"
+      ],
+      "latest_matured_evidence_date": "2020-08-26",
+      "mean_r2_diagnostic": -0.00245622052882688,
+      "model_family": "RIDGE",
+      "parameters": {
+        "alpha": 10.0
+      },
+      "robust_score": -0.013949500284250082
+    },
+    {
+      "activation_cutoff": "2022-08-31",
+      "candidate_id": "c70d5e02334107ec",
+      "fold_count": 6,
+      "fold_ids": [
+        "WF_000_2019-08-09_2020-02-07",
+        "WF_001_2020-02-10_2020-08-07",
+        "WF_002_2020-08-10_2021-02-08",
+        "WF_003_2021-02-09_2021-08-09",
+        "WF_004_2021-08-10_2022-02-07",
+        "WF_005_2022-02-08_2022-08-09"
+      ],
+      "latest_matured_evidence_date": "2022-08-26",
+      "mean_r2_diagnostic": -0.03597644312985859,
+      "model_family": "HIST_GRADIENT_BOOSTING",
+      "parameters": {
+        "l2_regularization": 1.0,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "robust_score": -0.008449698548439487
+    },
+    {
+      "activation_cutoff": "2023-02-28",
+      "candidate_id": "300b90caae2472a6",
+      "fold_count": 7,
+      "fold_ids": [
+        "WF_000_2019-08-09_2020-02-07",
+        "WF_001_2020-02-10_2020-08-07",
+        "WF_002_2020-08-10_2021-02-08",
+        "WF_003_2021-02-09_2021-08-09",
+        "WF_004_2021-08-10_2022-02-07",
+        "WF_005_2022-02-08_2022-08-09",
+        "WF_006_2022-08-10_2023-02-08"
+      ],
+      "latest_matured_evidence_date": "2023-02-23",
+      "mean_r2_diagnostic": -0.0036214007146714777,
+      "model_family": "RIDGE",
+      "parameters": {
+        "alpha": 10.0
+      },
+      "robust_score": -0.0025537836555277506
+    }
+  ],
+  "components": [
+    {
+      "fresh_fit": true,
+      "model_artifact_id": "a3a55615bf19342a34e40cc8372928f528601dbaf85e7cebfda80bce99c72053",
+      "model_artifact_sha256": "741bd22107774b06a85dd83c4f10049c31a8c578c30af6dbba0bb5b886169bef",
+      "name": "SELECTED_ALL_FOLDS",
+      "selected_hyperparameters": {
+        "alpha": 10.0
+      },
+      "selected_model_family": "RIDGE",
+      "selection_evidence": {
+        "candidate_id": "300b90caae2472a6",
+        "family": "RIDGE",
+        "fold_count": 8,
+        "fold_ids": [
+          "WF_000_2019-08-09_2020-02-07",
+          "WF_001_2020-02-10_2020-08-07",
+          "WF_002_2020-08-10_2021-02-08",
+          "WF_003_2021-02-09_2021-08-09",
+          "WF_004_2021-08-10_2022-02-07",
+          "WF_005_2022-02-08_2022-08-09",
+          "WF_006_2022-08-10_2023-02-08",
+          "WF_007_2023-02-09_2023-08-10"
+        ],
+        "mean_mae": 0.022152061777619983,
+        "mean_r2_diagnostic": -0.003347649811746234,
+        "mean_spearman": 0.010370380080191793,
+        "median_spearman": 0.012136424357821154,
+        "model_combination_contract": "SINGLE_SELECTED_RECIPE_NO_ENSEMBLE_NO_MODEL_INTERSECTION",
+        "negative_fold_rate": 0.375,
+        "parameters": {
+          "alpha": 10.0
+        },
+        "recipe_frozen_at": "2023-09-29",
+        "robust_score": 0.0012915313684170558,
+        "selection_contract": "FIRST_CAUSAL_REFIT_THEN_FROZEN_WITHIN_FAMILY",
+        "selection_metric_contract": "ROBUST_FOLD_SPEARMAN_THEN_MAE_TIEBREAK_R2_DIAGNOSTIC_ONLY",
+        "std_spearman": 0.017060166058999994
+      },
+      "threshold": 0.012374286097403696
+    },
+    {
+      "fresh_fit": true,
+      "model_artifact_id": "7a640f76649cc235126b472d6387617dc93da3434cb33e0bb8dc686c0bb7fb29",
+      "model_artifact_sha256": "741bd22107774b06a85dd83c4f10049c31a8c578c30af6dbba0bb5b886169bef",
+      "name": "RIDGE_ALL_FOLDS",
+      "selected_hyperparameters": {
+        "alpha": 10.0
+      },
+      "selected_model_family": "RIDGE",
+      "selection_evidence": {
+        "candidate_id": "300b90caae2472a6",
+        "family": "RIDGE",
+        "fold_count": 8,
+        "fold_ids": [
+          "WF_000_2019-08-09_2020-02-07",
+          "WF_001_2020-02-10_2020-08-07",
+          "WF_002_2020-08-10_2021-02-08",
+          "WF_003_2021-02-09_2021-08-09",
+          "WF_004_2021-08-10_2022-02-07",
+          "WF_005_2022-02-08_2022-08-09",
+          "WF_006_2022-08-10_2023-02-08",
+          "WF_007_2023-02-09_2023-08-10"
+        ],
+        "mean_mae": 0.022152061777619983,
+        "mean_r2_diagnostic": -0.003347649811746234,
+        "mean_spearman": 0.010370380080191793,
+        "median_spearman": 0.012136424357821154,
+        "model_combination_contract": "SINGLE_SELECTED_RECIPE_NO_ENSEMBLE_NO_MODEL_INTERSECTION",
+        "negative_fold_rate": 0.375,
+        "parameters": {
+          "alpha": 10.0
+        },
+        "recipe_frozen_at": "2023-09-29",
+        "robust_score": 0.0012915313684170558,
+        "selection_contract": "FIRST_CAUSAL_REFIT_THEN_FROZEN_WITHIN_FAMILY",
+        "selection_metric_contract": "ROBUST_FOLD_SPEARMAN_THEN_MAE_TIEBREAK_R2_DIAGNOSTIC_ONLY",
+        "std_spearman": 0.017060166058999994
+      },
+      "threshold": 0.012374286097403696
+    },
+    {
+      "fresh_fit": true,
+      "model_artifact_id": "d5a38d01098fd61543c9963ab400fbe1288219c2f4dd3de8e6d287c382afcc60",
+      "model_artifact_sha256": "78408a7859b74f878a6b80c2d1005e4b11c762621fc2c1c72fafa650816ed524",
+      "name": "HGB_ALL_FOLDS",
+      "selected_hyperparameters": {
+        "l2_regularization": 1.0,
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "selected_model_family": "HIST_GRADIENT_BOOSTING",
+      "selection_evidence": {
+        "candidate_id": "c70d5e02334107ec",
+        "family": "HIST_GRADIENT_BOOSTING",
+        "fold_count": 8,
+        "fold_ids": [
+          "WF_000_2019-08-09_2020-02-07",
+          "WF_001_2020-02-10_2020-08-07",
+          "WF_002_2020-08-10_2021-02-08",
+          "WF_003_2021-02-09_2021-08-09",
+          "WF_004_2021-08-10_2022-02-07",
+          "WF_005_2022-02-08_2022-08-09",
+          "WF_006_2022-08-10_2023-02-08",
+          "WF_007_2023-02-09_2023-08-10"
+        ],
+        "mean_mae": 0.022633009631565736,
+        "mean_r2_diagnostic": -0.028853953748634698,
+        "mean_spearman": 0.00626804464806146,
+        "median_spearman": 0.003689962687851646,
+        "model_combination_contract": "SINGLE_SELECTED_RECIPE_NO_ENSEMBLE_NO_MODEL_INTERSECTION",
+        "negative_fold_rate": 0.375,
+        "parameters": {
+          "l2_regularization": 1.0,
+          "learning_rate": 0.05,
+          "max_iter": 200,
+          "max_leaf_nodes": 31
+        },
+        "recipe_frozen_at": "2023-09-29",
+        "robust_score": -0.010617024180440603,
+        "selection_contract": "FIRST_CAUSAL_REFIT_THEN_FROZEN_WITHIN_FAMILY",
+        "selection_metric_contract": "ROBUST_FOLD_SPEARMAN_THEN_MAE_TIEBREAK_R2_DIAGNOSTIC_ONLY",
+        "std_spearman": 0.01988201838464596
+      },
+      "threshold": 0.021500783611632237
+    },
+    {
+      "fresh_fit": true,
+      "model_artifact_id": "25a716eb73d38a74e5b4c88d329ec5a779587ba70ef16a29fb82df5b4efcdced",
+      "model_artifact_sha256": "d3987bc731ae5ba4f96b85b53e003b4909af8f760fd3b6bfc42d9db026b94e21",
+      "name": "SINGLE_POSITIVE_SPEARMAN_R2_FOLD",
+      "selected_hyperparameters": {
+        "l2_regularization": 1.0,
+        "learning_rate": 0.03,
+        "max_iter": 200,
+        "max_leaf_nodes": 15
+      },
+      "selected_model_family": "HIST_GRADIENT_BOOSTING",
+      "selection_evidence": {
+        "candidate_id": "979a7310b40d41ec",
+        "family": "HIST_GRADIENT_BOOSTING",
+        "fold_count": 1,
+        "fold_ids": [
+          "WF_007_2023-02-09_2023-08-10"
+        ],
+        "mean_mae": 0.019302596349517333,
+        "mean_r2_diagnostic": 0.00013281802359266237,
+        "mean_spearman": 0.005303266069463455,
+        "median_spearman": 0.005303266069463455,
+        "model_combination_contract": "SINGLE_SELECTED_RECIPE_NO_ENSEMBLE_NO_MODEL_INTERSECTION",
+        "negative_fold_rate": 0.0,
+        "parameters": {
+          "l2_regularization": 1.0,
+          "learning_rate": 0.03,
+          "max_iter": 200,
+          "max_leaf_nodes": 15
+        },
+        "recipe_frozen_at": "2023-09-29",
+        "robust_score": 0.007954899104195182,
+        "selection_contract": "FIRST_CAUSAL_REFIT_THEN_FROZEN_WITHIN_FAMILY",
+        "selection_metric_contract": "ROBUST_FOLD_SPEARMAN_THEN_MAE_TIEBREAK_R2_DIAGNOSTIC_ONLY",
+        "std_spearman": 0.0
+      },
+      "threshold": 0.014908445534407445
+    }
+  ],
+  "evaluation": {
+    "end": "2023-12-29",
+    "start": "2023-10-02"
+  },
+  "execution_resources": {
+    "affinity_enabled": true,
+    "available_capacity_fraction": 1.0,
+    "configured": true,
+    "contract": "FULL_CPU_CAPACITY_TARGETING_90_PERCENT_OBSERVED_UTILIZATION",
+    "logical_processors": 16,
+    "model_fit_processes": 1,
+    "native_threads_per_serial_fit": 16,
+    "reserve_logical_processors": 0,
+    "reserved_logical_processors": [],
+    "selected_logical_processors": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      1,
+      5,
+      9,
+      13,
+      3,
+      7,
+      11,
+      15
+    ],
+    "target_fraction": 0.9,
+    "target_logical_processors": 16
+  },
+  "fit_cutoff": "2023-09-29",
+  "fresh_models_trained": true,
+  "old_model_artifacts_reused": false,
+  "optimization_roadmap": [
+    {
+      "experiment": "N2_N3_DIVERSIFICATION",
+      "guard": "Same entries, total sleeve and costs; predeclare N2/N3 and sector cap",
+      "objective": "Reduce idiosyncratic drawdown while preserving the 50% total sleeve",
+      "priority": 1
+    },
+    {
+      "experiment": "CAUSAL_RECIPE_SWITCH_HYSTERESIS",
+      "guard": "Switch only on matured multi-fold improvement; no evaluation-period tuning",
+      "objective": "Avoid weak recipe changes and reduce transition risk",
+      "priority": 2
+    },
+    {
+      "experiment": "SOFT_RIDGE_HGB_AGREEMENT",
+      "guard": "Calibrate percentile blend and minimum agreement solely on prior OOS folds",
+      "objective": "Retain more alpha than the one-trade hard intersection while filtering disagreement",
+      "priority": 3
+    },
+    {
+      "experiment": "DRAWDOWN_AWARE_SLEEVE_THROTTLE",
+      "guard": "Causal trailing relative-wealth state; fixed de-risk/re-risk ladder; compare terminal value non-inferiority",
+      "objective": "Cut left-tail exposure without permanently lowering opportunity participation",
+      "priority": 4
+    },
+    {
+      "experiment": "LEARNED_EXIT_DOWNSIDE_OVERLAY",
+      "guard": "Generation-specific E-models, next-open execution, coverage gate and fixed-H fallback",
+      "objective": "Exit failed opportunities earlier while retaining winners",
+      "priority": 5
+    },
+    {
+      "experiment": "RECIPE_PLATEAU_CLUSTERING",
+      "guard": "Cluster correlated candidates; time/fold remains inference unit; R2 diagnostic only",
+      "objective": "Prefer stable recipe plateaus over a single noisy candidate winner",
+      "priority": 6
+    }
+  ],
+  "portfolio_contract": {
+    "benchmark": "URTH",
+    "holding_days": 2,
+    "initial_value": 10000.0,
+    "max_names": 1,
+    "roundtrip_bps": 20.0,
+    "sleeve": 0.5,
+    "tax": "PRE_TAX"
+  },
+  "portfolio_value_comparison": [
+    {
+      "initial_value": 10000.0,
+      "relative_max_drawdown": -0.055744444046017194,
+      "strategy": "SINGLE_POSITIVE_SPEARMAN_R2_FOLD",
+      "terminal_excess_eur": 452.8315676826278,
+      "terminal_relative_return": 0.04068778266940121,
+      "terminal_value": 11582.255143354007,
+      "total_cost_eur": 113.04432792435773,
+      "trade_count": 11,
+      "urth_terminal_value": 11129.423575671379
+    },
+    {
+      "initial_value": 10000.0,
+      "relative_max_drawdown": -0.05899468553151688,
+      "strategy": "SELECTED_SINGLE_MODEL",
+      "terminal_excess_eur": -89.96586852236578,
+      "terminal_relative_return": -0.008083605400645233,
+      "terminal_value": 11039.457707149013,
+      "total_cost_eur": 48.575247195284376,
+      "trade_count": 5,
+      "urth_terminal_value": 11129.423575671379
+    },
+    {
+      "initial_value": 10000.0,
+      "relative_max_drawdown": -0.016952523387855467,
+      "strategy": "RIDGE_HGB_INTERSECTION",
+      "terminal_excess_eur": -155.86494340739227,
+      "terminal_relative_return": -0.014004763350737082,
+      "terminal_value": 10973.558632263987,
+      "total_cost_eur": 9.600099138878324,
+      "trade_count": 1,
+      "urth_terminal_value": 11129.423575671379
+    }
+  ],
+  "rolling_recipe_shadow": {
+    "authority": "SHADOW_ONLY_NO_PROMOTION_NO_HOLDOUT",
+    "evaluation": {
+      "end": "2023-12-29",
+      "start": "2020-08-31"
+    },
+    "execution_resources": {
+      "affinity_enabled": true,
+      "available_capacity_fraction": 1.0,
+      "configured": true,
+      "contract": "FULL_CPU_CAPACITY_TARGETING_90_PERCENT_OBSERVED_UTILIZATION",
+      "logical_processors": 16,
+      "model_fit_processes": 1,
+      "native_threads_per_serial_fit": 16,
+      "reserve_logical_processors": 0,
+      "reserved_logical_processors": [],
+      "selected_logical_processors": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        1,
+        5,
+        9,
+        13,
+        3,
+        7,
+        11,
+        15
+      ],
+      "target_fraction": 0.9,
+      "target_logical_processors": 16
+    },
+    "fresh_models_trained": true,
+    "old_model_artifacts_reused": false,
+    "portfolio_value_comparison": [
+      {
+        "initial_value": 10000.0,
+        "relative_max_drawdown": -0.3610670755094727,
+        "strategy": "ROLLING_CAUSAL_RECIPE_RESELECTION",
+        "terminal_excess_eur": 1813.8630315898408,
+        "terminal_relative_return": 0.1407267559876626,
+        "terminal_value": 14703.117948749032,
+        "total_cost_eur": 514.6724113811243,
+        "trade_count": 55,
+        "urth_terminal_value": 12889.25491715919
+      },
+      {
+        "initial_value": 10000.0,
+        "relative_max_drawdown": -0.2878972120332496,
+        "strategy": "FROZEN_FIRST_CAUSAL_RECIPE",
+        "terminal_excess_eur": 563.0405522187975,
+        "terminal_relative_return": 0.04368294023491104,
+        "terminal_value": 13452.295469377988,
+        "total_cost_eur": 417.4465527291936,
+        "trade_count": 35,
+        "urth_terminal_value": 12889.25491715919
+      },
+      {
+        "initial_value": 10000.0,
+        "relative_max_drawdown": -0.2427196500656914,
+        "strategy": "FROZEN_RECIPE_MATCHED_REFIT_DATES",
+        "terminal_excess_eur": 508.9907184573676,
+        "terminal_relative_return": 0.03948953773734121,
+        "terminal_value": 13398.245635616559,
+        "total_cost_eur": 446.38975316637544,
+        "trade_count": 46,
+        "urth_terminal_value": 12889.25491715919
+      }
+    ],
+    "primary_recipe_selection_contrast": "ROLLING_CAUSAL_RECIPE_RESELECTION_MINUS_FROZEN_RECIPE_MATCHED_REFIT_DATES",
+    "recipe_generations": [
+      {
+        "activation_cutoff": "2020-08-31",
+        "fresh_fit": true,
+        "model_artifact_id": "f5aa6a20a30012e1d74b9cc674cf20661ab1404fcec64cc3176cfc1116cce6fc",
+        "model_artifact_sha256": "2ce7283f11cc09ad81faea5bba4cd5e05d2000cb5cbb335978b463f9d8676112",
+        "selected_hyperparameters": {
+          "alpha": 10.0
+        },
+        "selected_model_family": "RIDGE",
+        "selection_evidence": {
+          "candidate_id": "300b90caae2472a6",
+          "family": "RIDGE",
+          "fold_count": 2,
+          "fold_ids": [
+            "WF_000_2019-08-09_2020-02-07",
+            "WF_001_2020-02-10_2020-08-07"
+          ],
+          "mean_mae": 0.025727751123809258,
+          "mean_r2_diagnostic": -0.00245622052882688,
+          "mean_spearman": 0.0006196656171748843,
+          "median_spearman": 0.0006196656171748843,
+          "model_combination_contract": "SINGLE_SELECTED_RECIPE_NO_ENSEMBLE_NO_MODEL_INTERSECTION",
+          "negative_fold_rate": 0.5,
+          "parameters": {
+            "alpha": 10.0
+          },
+          "recipe_frozen_at": "2020-08-31",
+          "robust_score": -0.013949500284250082,
+          "selection_contract": "CAUSAL_RESELECT_AT_EACH_REFIT",
+          "selection_metric_contract": "ROBUST_FOLD_SPEARMAN_THEN_MAE_TIEBREAK_R2_DIAGNOSTIC_ONLY",
+          "std_spearman": 0.009757997420024818
+        }
+      },
+      {
+        "activation_cutoff": "2022-08-31",
+        "fresh_fit": true,
+        "model_artifact_id": "ac26b43c166d67cb7217807ae3147704ee08741831d3c7400abbea473b3290f6",
+        "model_artifact_sha256": "6779379c17becc94185d390a0fe904fac1471d70076d927e36357305db017cdd",
+        "selected_hyperparameters": {
+          "l2_regularization": 1.0,
+          "learning_rate": 0.05,
+          "max_iter": 200,
+          "max_leaf_nodes": 31
+        },
+        "selected_model_family": "HIST_GRADIENT_BOOSTING",
+        "selection_evidence": {
+          "candidate_id": "c70d5e02334107ec",
+          "family": "HIST_GRADIENT_BOOSTING",
+          "fold_count": 6,
+          "fold_ids": [
+            "WF_000_2019-08-09_2020-02-07",
+            "WF_001_2020-02-10_2020-08-07",
+            "WF_002_2020-08-10_2021-02-08",
+            "WF_003_2021-02-09_2021-08-09",
+            "WF_004_2021-08-10_2022-02-07",
+            "WF_005_2022-02-08_2022-08-09"
+          ],
+          "mean_mae": 0.023503261951763166,
+          "mean_r2_diagnostic": -0.03597644312985859,
+          "mean_spearman": 0.004330303361162563,
+          "median_spearman": 0.003689962687851646,
+          "model_combination_contract": "SINGLE_SELECTED_RECIPE_NO_ENSEMBLE_NO_MODEL_INTERSECTION",
+          "negative_fold_rate": 0.3333333333333333,
+          "parameters": {
+            "l2_regularization": 1.0,
+            "learning_rate": 0.05,
+            "max_iter": 200,
+            "max_leaf_nodes": 31
+          },
+          "recipe_frozen_at": "2022-08-31",
+          "robust_score": -0.008449698548439487,
+          "selection_contract": "CAUSAL_RESELECT_AT_EACH_REFIT",
+          "selection_metric_contract": "ROBUST_FOLD_SPEARMAN_THEN_MAE_TIEBREAK_R2_DIAGNOSTIC_ONLY",
+          "std_spearman": 0.015276292500411497
+        }
+      },
+      {
+        "activation_cutoff": "2023-02-28",
+        "fresh_fit": true,
+        "model_artifact_id": "43e078d1ab07774491af730c22a2e234f40e449d420f1dbbe578fe07b229ef8d",
+        "model_artifact_sha256": "fc456cf4e3846142cac8bd5b8fe9ccaae20e97a4ba2db08f5cde9bbf15bfb5e1",
+        "selected_hyperparameters": {
+          "alpha": 10.0
+        },
+        "selected_model_family": "RIDGE",
+        "selection_evidence": {
+          "candidate_id": "300b90caae2472a6",
+          "family": "RIDGE",
+          "fold_count": 7,
+          "fold_ids": [
+            "WF_000_2019-08-09_2020-02-07",
+            "WF_001_2020-02-10_2020-08-07",
+            "WF_002_2020-08-10_2021-02-08",
+            "WF_003_2021-02-09_2021-08-09",
+            "WF_004_2021-08-10_2022-02-07",
+            "WF_005_2022-02-08_2022-08-09",
+            "WF_006_2022-08-10_2023-02-08"
+          ],
+          "mean_mae": 0.02255226349666376,
+          "mean_r2_diagnostic": -0.0036214007146714777,
+          "mean_spearman": 0.007267302007406116,
+          "median_spearman": 0.010377663037199702,
+          "model_combination_contract": "SINGLE_SELECTED_RECIPE_NO_ENSEMBLE_NO_MODEL_INTERSECTION",
+          "negative_fold_rate": 0.42857142857142855,
+          "parameters": {
+            "alpha": 10.0
+          },
+          "recipe_frozen_at": "2023-02-28",
+          "robust_score": -0.0025537836555277506,
+          "selection_contract": "CAUSAL_RESELECT_AT_EACH_REFIT",
+          "selection_metric_contract": "ROBUST_FOLD_SPEARMAN_THEN_MAE_TIEBREAK_R2_DIAGNOSTIC_ONLY",
+          "std_spearman": 0.01598733825000388
+        }
+      }
+    ],
+    "recipe_segment_comparison": [
+      {
+        "local_relative_max_drawdown": -0.15971328891672132,
+        "relative_return": -0.11606328428535095,
+        "segment_end": "2022-08-30",
+        "segment_start": "2020-08-31",
+        "sessions": 504,
+        "strategy": "FROZEN_FIRST_CAUSAL_RECIPE",
+        "strategy_return": -0.048489786688329484,
+        "urth_return": 0.07644608080612336
+      },
+      {
+        "local_relative_max_drawdown": -0.08635028550721513,
+        "relative_return": 0.3137958054677592,
+        "segment_end": "2023-02-27",
+        "segment_start": "2022-08-31",
+        "sessions": 123,
+        "strategy": "FROZEN_FIRST_CAUSAL_RECIPE",
+        "strategy_return": 0.3631391297409743,
+        "urth_return": 0.03755783362061127
+      },
+      {
+        "local_relative_max_drawdown": -0.28789721203324947,
+        "relative_return": -0.10129007000590706,
+        "segment_end": "2023-12-29",
+        "segment_start": "2023-02-28",
+        "sessions": 212,
+        "strategy": "FROZEN_FIRST_CAUSAL_RECIPE",
+        "strategy_return": 0.04891544119243907,
+        "urth_return": 0.16713458501491485
+      },
+      {
+        "local_relative_max_drawdown": -0.15971328891672132,
+        "relative_return": -0.11606328428535095,
+        "segment_end": "2022-08-30",
+        "segment_start": "2020-08-31",
+        "sessions": 504,
+        "strategy": "FROZEN_RECIPE_MATCHED_REFIT_DATES",
+        "strategy_return": -0.048489786688329484,
+        "urth_return": 0.07644608080612336
+      },
+      {
+        "local_relative_max_drawdown": -0.24271965006569152,
+        "relative_return": 0.10723885413633627,
+        "segment_end": "2023-02-27",
+        "segment_start": "2022-08-31",
+        "sessions": 123,
+        "strategy": "FROZEN_RECIPE_MATCHED_REFIT_DATES",
+        "strategy_return": 0.14882434679826506,
+        "urth_return": 0.03755783362061127
+      },
+      {
+        "local_relative_max_drawdown": -0.05229228256606311,
+        "relative_return": 0.07668842220162286,
+        "segment_end": "2023-12-29",
+        "segment_start": "2023-02-28",
+        "sessions": 212,
+        "strategy": "FROZEN_RECIPE_MATCHED_REFIT_DATES",
+        "strategy_return": 0.2566402948366544,
+        "urth_return": 0.16713458501491485
+      },
+      {
+        "local_relative_max_drawdown": -0.15971328891672132,
+        "relative_return": -0.11606328428535095,
+        "segment_end": "2022-08-30",
+        "segment_start": "2020-08-31",
+        "sessions": 504,
+        "strategy": "ROLLING_CAUSAL_RECIPE_RESELECTION",
+        "strategy_return": -0.048489786688329484,
+        "urth_return": 0.07644608080612336
+      },
+      {
+        "local_relative_max_drawdown": -0.28139286625596616,
+        "relative_return": 0.15814392970733415,
+        "segment_end": "2023-02-27",
+        "segment_start": "2022-08-31",
+        "sessions": 123,
+        "strategy": "ROLLING_CAUSAL_RECIPE_RESELECTION",
+        "strategy_return": 0.2016413067280034,
+        "urth_return": 0.03755783362061127
+      },
+      {
+        "local_relative_max_drawdown": -0.052292282566063,
+        "relative_return": 0.08051425351902242,
+        "segment_end": "2023-12-29",
+        "segment_start": "2023-02-28",
+        "sessions": 212,
+        "strategy": "ROLLING_CAUSAL_RECIPE_RESELECTION",
+        "strategy_return": 0.26110555488362475,
+        "urth_return": 0.16713458501491485
+      }
+    ],
+    "recipe_selection_contract": "CAUSAL_RESELECT_AT_EACH_REFIT",
+    "schema_version": "DYNAMIC_QBD_ROLLING_RECIPE_SHADOW_V1",
+    "stale_model_contrast": "FROZEN_FIRST_CAUSAL_RECIPE_IS_DIAGNOSTIC_ONLY_AND_CONFOUNDS_RECIPE_WITH_MODEL_AGE"
+  },
+  "schema_version": "DYNAMIC_QBD_MODEL_COMBINATION_SHADOW_EXPERIMENT_V2",
+  "single_fold_candidate": {
+    "candidate_id": "979a7310b40d41ec",
+    "fold_id": "WF_007_2023-02-09_2023-08-10",
+    "model_family": "HIST_GRADIENT_BOOSTING",
+    "r2": -0.002149838130060866,
+    "spearman": -0.032452045633837974
+  },
+  "single_fold_eligibility_rule": "SPEARMAN_GT_0_AND_R2_GT_0_ON_COMPLETED_OUTER_FOLD",
+  "status": "COMPLETE"
+}

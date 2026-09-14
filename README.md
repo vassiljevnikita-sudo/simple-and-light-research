@@ -4,11 +4,11 @@
 
 > Public research snapshot of the Dynamic-QBD / Opportunity-Portfolio program. This repository starts from source snapshot `c196dba496203e803917fd4fff9a03d4df9dc3a2` and intentionally excludes private operational material, credentials, customer data, local machine state, and large licensed/local datasets.
 
-> **Partial mirror.** The research tree has not been fully transferred yet. This
-> document describes the research program as it exists in the private source
-> repository, so several paths and links below point at files that are **not present
-> here yet**. [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md) lists exactly what has been
-> transferred and what is still pending. Check it before following a link.
+> **Scope.** The documented research scope is mirrored here: research documents,
+> architecture docs, the Dynamic-QBD implementation and self-tests, and compact run
+> evidence. Large artifact stores, private runtime incident history and all
+> business/customer automation are excluded by contract.
+> [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md) states what is included, what is excluded and why.
 
 `simple-and-light` is a research repository for chronological stock-selection, portfolio and execution experiments. It contains several generations of work. The protected V4/N25, V4.5, V5 and broker contracts remain in the repository, but the active research program on the current QBD branch is the **Opportunity-Portfolio / Dynamic-QBD system**.
 

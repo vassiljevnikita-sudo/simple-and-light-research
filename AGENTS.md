@@ -3,16 +3,16 @@
 This is the canonical repository-specific instruction file for coding and research agents working in the `simple-and-light` research program.
 
 > **You are in the public mirror.** `simple-and-light-research` is a sanitized,
-> history-free, **partial** export of the private `simple-and-light` repository,
-> which remains the internal source of truth. The instructions below are the full
-> program rules and are stated in terms of the private source tree. Several
-> documents they require are not present in this mirror yet.
+> history-free export of the private `simple-and-light` repository, which remains
+> the internal source of truth. Every document the start sequence below requires is
+> present here.
 >
-> Before acting here, read [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md): it defines what may
-> ever be published to this repository, and lists exactly which referenced paths
-> have been transferred and which are still pending. An absent document is pending,
-> **not** evidence that the contract it defines does not exist — do not reconstruct,
-> guess at, or silently replace a contract you cannot read.
+> Before acting, read [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md): it defines what may ever be
+> published to this repository. Material it excludes — large artifact stores, private
+> runtime incident history, operational and business automation — is absent by
+> contract, not by oversight. An absent document is **not** evidence that the
+> contract it defines does not exist; do not reconstruct, guess at, or silently
+> replace one you cannot read, and never publish excluded material here.
 
 The repository contains multiple historical research tracks. Do not assume the oldest root model documentation describes the active task. Resolve the current branch, read the current tracker, and identify the research track before changing code.
 
@@ -35,11 +35,13 @@ Before making changes:
 8. Inspect the current implementation files, not only documentation. Documentation can lag code; exact committed result artifacts and contracts are evidence for completed runs.
 9. Only then plan or edit.
 
-In the public mirror, steps 4-7 can only be completed for documents that have
-actually been transferred. When a required document is listed as pending in
-[PUBLIC_SCOPE.md](PUBLIC_SCOPE.md), say so explicitly and treat the affected work as
-blocked on obtaining it from the private repository. Proceeding without a mandatory
-contract, or inferring its content, is a failure mode — not a shortcut.
+In the public mirror, steps 4-7 are all satisfiable: the research documents, the
+architecture docs and the compact run artifacts they refer to are present. What is
+not present is listed in [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md) under
+`Deliberately not transferred` — chiefly the bulk artifact stores, so a step-7
+inspection of a *large* run's raw state must happen in the private repository.
+Proceeding without a mandatory contract, or inferring its content, is a failure
+mode — not a shortcut.
 
 If the task is only a question, investigation or result review, treat it as read-only unless the user explicitly asks for changes.
 

@@ -1,0 +1,23 @@
+{
+  "activity_conditioned_rows": 96,
+  "anti_h30_rows": 30,
+  "assessment_end": "2025-12-31 00:00:00",
+  "assessment_start": "2016-02-29 00:00:00",
+  "cluster_counts": {
+    "ECONOMIC_REGION": 10,
+    "FAMILY": 2790,
+    "HD_GRID": 60,
+    "H_BAND": 4
+  },
+  "family_count": 2790,
+  "future_spread_rows": 96,
+  "holdout_opened": false,
+  "models_retrained": false,
+  "predictions_regenerated": false,
+  "primary_diagnosis": "PERSISTENCE_EXISTS_BUT_TOO_WEAK_AFTER_COSTS",
+  "rank_persistence_rows": 24,
+  "runtime_seconds": 512.4233410358429,
+  "selector_authority": false,
+  "selector_feasibility_rows": 432,
+  "status": "DYNAMIC_QBD_REGIME_DIAGNOSTICS_COMPLETE"
+}

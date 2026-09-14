@@ -1,0 +1,52 @@
+{
+  "authority": "SHADOW_ONLY_NO_PROMOTION_NO_HOLDOUT",
+  "code_commit": "7598dbf",
+  "counterfactual": {
+    "learned_exit_included": false,
+    "new": "NEW_ACTIVATE_FOLD_CLOCK_REFIT",
+    "new_becomes_next_event_canonical_state": true,
+    "new_model_available_after_event_cutoff": true,
+    "old": "OLD_KEEP_INCUMBENT_ONE_MORE_FOLD_INTERVAL",
+    "same_frozen_recipe": true,
+    "same_pre_event_portfolio_state": true
+  },
+  "development_end": "2025-12-31",
+  "development_start": "2016-06-24",
+  "diagnostics": {
+    "activation_gate_optimized": false,
+    "ex_ante_fields": [
+      "incumbent_model_age_days",
+      "fold_count_increment",
+      "threshold_delta",
+      "threshold_pct_delta",
+      "calibration_observation_delta",
+      "train_start_shift_days",
+      "train_end_shift_days"
+    ],
+    "post_event_fields": [
+      "post_event_score_spearman",
+      "post_event_daily_top_overlap_median",
+      "post_event_threshold_pass_jaccard_median"
+    ]
+  },
+  "execution_semantics": {
+    "cpu_target_fraction": 0.8,
+    "family_workers_per_horizon": 1,
+    "horizon_process_workers": 24,
+    "memory_limit_gib": 90.0,
+    "memory_soft_target_gib": 84.0,
+    "native_threads_per_worker": 1,
+    "scheduler": "HORIZON_PROCESS_POOL_V3_ONE_CPU_PER_HORIZON_TASK"
+  },
+  "final_holdout_opened": false,
+  "fixed_family_count": 2790,
+  "holdout_contract": "PROSPECTIVE_FROM_2026_07_25",
+  "promotion_allowed": false,
+  "schema_version": "DYNAMIC_QBD_FOLD_EVENT_COUNTERFACTUAL_V1",
+  "semantic_run_contract_hash": "8d7838ef686eefd8b908be2445e6e35e6f7cc69cce31097a496dda5c3d834523",
+  "signal_panel_sha256": "3d9c7dccec543b294b90be676e5111a6d6ab4b556697bfb7e258409b1c716097",
+  "source_code_commit": "92a8cc048d2ac669425675a629c031a140673a9a",
+  "source_full_space_schema": "DYNAMIC_QBD_FULL_SPACE_FOLD_CLOCK_VALIDATION_V1",
+  "source_semantic_run_contract_hash": "d5fe131e7d6edfd02fd0b29aecb29f2ab0babd1434e8c93a6ee665cfbf78b760",
+  "source_summary_sha256": "e34ab42fa3293ca8781100e3896fe8669b53d45e0435b665a8d255c6e5774402"
+}

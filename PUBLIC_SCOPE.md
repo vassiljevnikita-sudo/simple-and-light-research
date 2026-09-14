@@ -2,15 +2,15 @@
 
 This repository is a **sanitized, history-free public snapshot** of the Dynamic-QBD /
 Opportunity-Portfolio research program. The private repository `simple-and-light`
-remains the internal source of truth. This mirror is a partial, curated export of it.
+remains the internal source of truth. This mirror is a curated export of it.
 
 Source snapshot: `c196dba496203e803917fd4fff9a03d4df9dc3a2`
 (branch `agent/dynamic-qbd-causal-model-store-v1`).
 
-> **Status: partial mirror.** The sanitation contract below is satisfied, but the
-> research tree has not been fully transferred. Several documents that the mirrored
-> root docs link to are **not present in this repository yet**. See
-> [Transfer status](#transfer-status) for the exact inventory before following a link.
+> **Status: research scope transferred.** The sanitation contract below is satisfied
+> and every document the mirrored root docs link to is now present. What remains
+> outside this repository is excluded by contract, not pending. See
+> [Transfer status](#transfer-status).
 
 ## Why the history is not mirrored
 
@@ -126,78 +126,65 @@ Two things about running it:
 
 ## Transfer status
 
-Mirrored so far:
+Transferred from the source snapshot, after per-file review against the exclusion
+contract:
 
-| Path | Kind |
+| Area | Contents |
 |---|---|
-| `README.md` | root documentation (sanitized) |
-| `AGENTS.md` | agent instructions |
-| `CURRENT_MODEL.md` | protected model identity |
-| `DOCUMENTATION_AUTHORITY.md` | documentation precedence |
-| `TOBECONTINUED.md` | work tracker (sanitized) |
-| `QA_TOOL_FAILURE_LOG.md` | public-only sanitation ledger |
-| `PUBLIC_SCOPE.md` | this contract |
-| `stock_predictor/README.md` | package marker |
-| `stock_predictor/__init__.py` | package initializer |
-| `stock_predictor/backtests/opportunity_portfolio_research/contract_fingerprints.py` | research implementation |
+| root docs | `README.md`, `AGENTS.md`, `agent.md`, `CURRENT_MODEL.md`, `DOCUMENTATION_AUTHORITY.md`, `TOBECONTINUED.md`, `PUBLIC_SCOPE.md`, `QA_TOOL_FAILURE_LOG.md` |
+| `research/` | 18 files — naming contract, current state, results index, data/runtime, execution minimum baseline, causal Model-Store plan, audits and roadmaps, plus the two `DQBD_CAUSAL_MODEL_STORE_V1` JSON contracts |
+| `docs/architecture/` | 5 implementation/runtime architecture documents |
+| `docs/external-validation/` | 1 external validation document |
+| `stock_predictor/` | `research_model_registry.json`, `project_manifest.json`, `n25_dual_venue.py`, `benchmark_policy.py`, package initializer and README |
+| `stock_predictor/backtests/opportunity_portfolio_research/` | 241 files — Dynamic-QBD factory, replay, evidence, gates, schedulers, self-tests and package documentation |
+| `artifacts/` | 64 compact evidence files: `summary.json`, `REPORT.md`, `contract-audit.json`, `run-contract.json` per run |
 
-**Not yet transferred.** The mirrored root documents reference the following paths.
-They are accurate descriptions of the private source tree, but the targets do not
-exist in this repository yet. Treat every link to them as pending, not broken
-content:
+Verified on the published tree: all 209 Python files parse, all 37 JSON files are
+valid, and every relative Markdown link resolves.
 
-| Referenced path | Referenced from |
+### Deliberately not transferred
+
+These are excluded by contract, not pending. Do not treat their absence as an
+oversight or transfer them later without a scope decision:
+
+| Excluded | Reason |
 |---|---|
-| `research/DYNAMIC_QBD_NAMING.md` | AGENTS, README, DOCUMENTATION_AUTHORITY, TOBECONTINUED |
-| `research/DYNAMIC_QBD_CURRENT_STATE.md` | AGENTS, README, DOCUMENTATION_AUTHORITY, TOBECONTINUED, CURRENT_MODEL |
-| `research/DYNAMIC_QBD_RESULTS_INDEX.md` | AGENTS, README, DOCUMENTATION_AUTHORITY, TOBECONTINUED |
-| `research/DYNAMIC_QBD_DATA_AND_RUNTIME.md` | AGENTS, README, DOCUMENTATION_AUTHORITY, TOBECONTINUED |
-| `research/DYNAMIC_QBD_EXECUTION_MINIMUM_BASELINE.md` | AGENTS, README, DOCUMENTATION_AUTHORITY, TOBECONTINUED |
-| `research/CAUSAL_MODEL_STORE_ORCHESTRATOR_PLAN.md` | AGENTS, README, DOCUMENTATION_AUTHORITY, TOBECONTINUED |
-| `research/DYNAMIC_QBD_SYSTEM_AUDIT_2026-08-15.md` | DOCUMENTATION_AUTHORITY |
-| `stock_predictor/research_model_registry.json` | AGENTS, README, DOCUMENTATION_AUTHORITY, CURRENT_MODEL |
-| `stock_predictor/project_manifest.json` | AGENTS, DOCUMENTATION_AUTHORITY |
-| `stock_predictor/n25_dual_venue.py` | CURRENT_MODEL |
-| `stock_predictor/benchmark_policy.py` | CURRENT_MODEL |
-| `stock_predictor/backtests/opportunity_portfolio_research/README.md` | README |
-| `stock_predictor/backtests/opportunity_portfolio_research/cost_contracts.py` | QA_TOOL_FAILURE_LOG |
-| `docs/architecture/` | AGENTS, README |
-| `artifacts/` and `artifacts/<run>/summary.json`, `REPORT.md`, `contract-audit.json`, `run-contract.json` | AGENTS, README, DOCUMENTATION_AUTHORITY |
-| `agent.md` | DOCUMENTATION_AUTHORITY |
+| `artifacts/alpaca-minute/` (11 GB), `artifacts/massive-minute/` (2 GB) and the rest of the 14 GB artifact tree | large local/licensed data stores; only compact evidence is published |
+| `docs/incidents/` | private-machine runtime incident history |
+| `ops/`, `output/`, `scripts/`, `Misc/`, `Old/`, `Images/` | private operational and scratch material |
+| `.env`, `.env.example`, `.vs/` | secrets and IDE local state |
+| Herbery, Shopware, Notion and dunning automation at the repository root | customer and business data |
+| `CLAUDE.md`, repair/status trackers, local logs | private operational artifacts |
+| the private git history | commit metadata carries credentials, customer data and a private address |
 
-A reader who needs one of these documents must obtain it from the private
-repository. An agent working in this mirror must not treat an absent document as
-evidence that the corresponding contract does not exist.
+An agent working in this mirror must not treat an absent document as evidence that
+the corresponding contract does not exist — read it in the private repository.
 
-## How remaining files should be transferred
+## How transfers are performed
 
-Two transfer paths have been attempted from hosted agent sessions. Both are
-constrained:
+The transfer is done from a hosted session with read access to the private
+repository and write access to this one: check out the source snapshot, select
+files against the inclusion contract, review each against the exclusion contract,
+run the sanitation probes, then commit and push.
 
-1. **Hosted write path.** Writing certain research source files into this repository
-   through a hosted agent's file-creation or Git-data API is blocked by an upstream
-   write-safety filter, independently of whether the file contains sensitive
-   material. Neutral files in the same directory write successfully. Incidents
-   `P3`-`P6` in [QA_TOOL_FAILURE_LOG.md](QA_TOOL_FAILURE_LOG.md) record the
-   confirmed cases.
-2. **Hosted read path.** A hosted session scoped to this public repository cannot
-   read the private repository at all, so it cannot transfer files even when the
-   write path would accept them. Incident `P7` records this.
-3. **Hosted push path.** A hosted session's write scope on this repository can be
-   absent for a time — both `git push` and the GitHub API return `403` while reads
-   keep succeeding — and then return without any change to the commit. This is an
-   authorization state, not a content filter, so it is never worked around by
-   changing what is written. Incident `P10` records this.
+Three constraints have been hit historically, all recorded in
+[QA_TOOL_FAILURE_LOG.md](QA_TOOL_FAILURE_LOG.md):
 
-The supported path for the remaining files is therefore **local and manual**:
+1. **Content write filter.** Some research source files were blocked by an upstream
+   write-safety filter when written through a hosted agent's file-creation or
+   Git-data API, independently of their content (`P3`-`P6`). Pushing over plain git
+   from a checkout is not subject to it.
+2. **Read access.** A session scoped only to this public repository cannot read the
+   private repository and therefore cannot transfer anything (`P7`).
+3. **Write access.** A session's write scope on this repository can be absent for a
+   time — `403` on both git and the GitHub API while reads keep succeeding — and
+   then return with no change to the commit (`P10`).
 
-1. check out the private repository at the source snapshot on a local machine;
-2. create a new, history-free working directory for the public tree;
-3. copy only files permitted by the inclusion contract, reviewing each against the
-   exclusion contract;
-4. re-run the sanitation probes in [Sanitation verification](#sanitation-verification);
-5. commit and push directly to `simple-and-light-research` from that local machine.
+Constraints 2 and 3 are authorization states: re-verify them before concluding a
+transfer is impossible. None of the three is ever worked around by encoding,
+obfuscating, renaming or altering executable logic. If a file cannot be transferred
+unchanged, transfer it over git from a checkout, or leave it out and record why.
 
-Do not work around the write-safety filter by encoding, obfuscating, renaming or
-altering executable logic. If a file cannot be transferred unchanged, transfer it
-locally or leave it out and record why.
+Before each batch, re-run the probes in
+[Sanitation verification](#sanitation-verification) — on the files being added, and
+on commit metadata, not only at the end.

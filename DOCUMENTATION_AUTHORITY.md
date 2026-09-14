@@ -1,10 +1,10 @@
 # Documentation Authority
 
 > **Public mirror note.** This precedence order describes the full private
-> `simple-and-light` tree. Several documents named below have not been transferred
-> to this public mirror yet; [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md) lists which. Absence
-> here does not lower a document's authority — it means the authoritative copy must
-> be read in the private repository.
+> `simple-and-light` tree. Every document named below is present in this mirror; the
+> bulk run artifacts behind the compact evidence in section 5 are not, by contract
+> (see [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md)). Absence never lowers a document's
+> authority — it means the authoritative copy must be read in the private repository.
 
 This repository contains multiple research generations. A file can be technically correct for its historical track and still be the wrong source for the current Dynamic-QBD task.
 

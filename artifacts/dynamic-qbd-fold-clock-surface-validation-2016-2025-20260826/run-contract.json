@@ -1,0 +1,58 @@
+{
+  "authority": "SHADOW_ONLY_NO_PROMOTION_NO_HOLDOUT",
+  "candidate_metrics_sha256": "9a956aededda70a9c8eb54fc6cede79e150f093bb391a1eac641a4ddce727318",
+  "checkpoint_compatibility": {
+    "accepted_previous_hash": "cf75b5ebf82edd62af92ddc31e9fde9ca423f47ffb750fe9f70eb7205c1114e3",
+    "mode": "SCHEDULER_ONLY_TRANSITION",
+    "research_contract_unchanged": true
+  },
+  "code_commit": "92a8cc048d2ac669425675a629c031a140673a9a",
+  "development_end": "2025-12-31",
+  "development_start": "2016-06-24",
+  "entry_adaptation_arms": [
+    "A_FROZEN_MODEL_FROZEN_CALIBRATION",
+    "F_FOLD_CLOCK_REFIT_FROZEN_BETWEEN_FOLDS",
+    "M_MONTHLY_REFIT_FROZEN_RECIPE"
+  ],
+  "execution_semantics": {
+    "cpu_target_fraction": 0.8,
+    "entry_process_workers": 24,
+    "family_workers_per_horizon": 1,
+    "horizon_process_workers": 24,
+    "memory_limit_gib": 90.0,
+    "memory_soft_target_gib": 84.0,
+    "native_threads_per_worker": 1,
+    "process_affinity_mode": "ONE_SELECTED_LOGICAL_PROCESSOR_PER_HORIZON_TASK",
+    "scheduler_version": "ENTRY_AND_HORIZON_PROCESS_POOLS_V1_PCORE_FIRST",
+    "worker_kind": "PROCESS_POOLS_FOR_ENTRY_AND_HORIZON_REPLAY"
+  },
+  "family_count": 5400,
+  "final_holdout_opened": false,
+  "gate_contract": {
+    "bootstrap_draws": 5000,
+    "bootstrap_seed": 1701,
+    "plateau_direction_fraction": 0.6,
+    "temporal_direction_fraction": 0.6
+  },
+  "holdout_contract": "PROSPECTIVE_FROM_2026_07_25",
+  "holdout_marker_audit": {
+    "boundary": "2026-07-25",
+    "contract": "PROSPECTIVE_FROM_2026_07_25",
+    "development_session_count": 2394,
+    "final_holdout_opened": false,
+    "historical_pre_boundary_marker_count": 249056,
+    "post_boundary_marker_count": 0,
+    "promotion_allowed": false
+  },
+  "initial": 10000.0,
+  "learned_exit_candidate_metrics_sha256": "d377218ef2c1640bd8c207ddc289d6c082da4c18805ccad81968899ab58dff00",
+  "learned_exit_contract": "INITIAL_CAUSAL_FROZEN_MATCHED_ACROSS_ENTRY_ARMS",
+  "promotion_allowed": false,
+  "round_trip_cost_bps": 20.0,
+  "schema_version": "DYNAMIC_QBD_FULL_SPACE_FOLD_CLOCK_VALIDATION_V1",
+  "score_quantile": 0.975,
+  "semantic_run_contract_hash": "d5fe131e7d6edfd02fd0b29aecb29f2ab0babd1434e8c93a6ee665cfbf78b760",
+  "signal_panel_sha256": "3d9c7dccec543b294b90be676e5111a6d6ab4b556697bfb7e258409b1c716097",
+  "sleeve": 0.5,
+  "top_fraction": 0.005
+}

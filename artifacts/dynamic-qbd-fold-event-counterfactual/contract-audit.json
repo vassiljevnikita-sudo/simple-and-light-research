@@ -1,0 +1,26 @@
+{
+  "authority": "SHADOW_ONLY_NO_PROMOTION_NO_HOLDOUT",
+  "checks": {
+    "all_30_horizons_present": true,
+    "counterfactual_new_is_canonical_fold_clock_path": true,
+    "event_count_matches_noninitial_fold_refits": true,
+    "event_family_row_coverage_complete": true,
+    "final_holdout_opened_false": true,
+    "fixed_exit_only": true,
+    "fixed_family_coverage_complete": true,
+    "incumbent_fit_precedes_event": true,
+    "new_fit_date_equals_event_date": true,
+    "new_model_differs_from_incumbent": true,
+    "no_activation_gate_learned": true,
+    "only_real_fold_expansion_events": true,
+    "post_event_diagnostics_not_activation_authority": true,
+    "promotion_allowed_false": true,
+    "same_recipe_within_each_event": true,
+    "source_status_complete": true
+  },
+  "expected_event_family_rows": 16740,
+  "expected_noninitial_event_count": 180,
+  "fixed_family_count": 2790,
+  "schema_version": "DYNAMIC_QBD_FOLD_EVENT_COUNTERFACTUAL_CONTRACT_AUDIT_V1",
+  "status": "PASS"
+}

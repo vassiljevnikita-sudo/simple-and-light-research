@@ -1,0 +1,370 @@
+{
+  "schema_version": "1.0",
+  "repository": {
+    "full_name": "vassiljevnikita-sudo/simple-and-light",
+    "architecture_base_branch": "integration/v5-t212-alpaca-massive",
+    "default_working_mode": "research",
+    "python_minimum": "3.12"
+  },
+  "safety": {
+    "paper_trading_only": true,
+    "live_orders_allowed": false,
+    "broker_writes_allowed": false,
+    "model_promotion_allowed_by_architecture_change": false,
+    "locked_holdout_retuning_allowed": false,
+    "forbidden_actions": [
+      "live_order_submission",
+      "broker_state_mutation",
+      "silent_model_promotion",
+      "historical_result_relabelling",
+      "future_information_in_signal_route_or_stop_decisions"
+    ]
+  },
+  "expected_current_ids": {
+    "v4": "V4_N25_T212_RESEARCH_V1",
+    "execution": "EXEC_N25_DUAL_VENUE_RESEARCH_V1",
+    "v45": "V45_N25_HYBRID_STOP_RESEARCH_V1",
+    "benchmark": "MSCI_WORLD_IMPLEMENTABLE_PROXY_V1",
+    "legacy_v4": "V4_FROZEN_10K_LEGACY"
+  },
+  "sources_of_truth": {
+    "model_registry": "stock_predictor/research_model_registry.json",
+    "current_model_human": "CURRENT_MODEL.md",
+    "agent_entrypoint": "AGENTS.md",
+    "target_architecture": "docs/architecture/AGENT_READY_TARGET_ARCHITECTURE.md",
+    "research_handoff": "agent.md",
+    "v4_n25_runner_contract": "stock_predictor/backtests/v4_n25_multifactor_runtime/runner_contract.json",
+    "v45_dataset_spec": "stock_predictor/data_processing/datasets/v45_n25_market_data_v1.json"
+  },
+  "layers": [
+    {
+      "id": "devtools",
+      "paths": [
+        "stock_predictor/devtools",
+        ".github/workflows/agent-architecture-check.yml"
+      ],
+      "may_import": [
+        "control_plane",
+        "research_runtime",
+        "data_processing"
+      ],
+      "purpose": "agent, local and CI entrypoints"
+    },
+    {
+      "id": "control_plane",
+      "paths": [
+        "stock_predictor/control_plane",
+        "stock_predictor/project_manifest.json"
+      ],
+      "may_import": [],
+      "purpose": "manifest, identity, safety, tasks and architecture validation"
+    },
+    {
+      "id": "research_runtime",
+      "paths": [
+        "stock_predictor/research_runtime"
+      ],
+      "may_import": [],
+      "purpose": "verified source artifacts and deterministic receipts"
+    },
+    {
+      "id": "data_processing",
+      "paths": [
+        "stock_predictor/data_processing",
+        "stock_predictor/repository_language_stats.py",
+        "scripts/build_minute_parquet.ps1",
+        "scripts/build_model_dataset.ps1"
+      ],
+      "may_import": [],
+      "purpose": "canonical minute and daily stores, dataset locks and normalized repository-language evidence"
+    },
+    {
+      "id": "research_applications",
+      "paths": [
+        "stock_predictor/backtest_v4_n25_multifactor_runner.py",
+        "stock_predictor/backtests/v4_n25_multifactor_runtime",
+        "stock_predictor/backtests/v45_hybrid_stop",
+        "stock_predictor/backtests/v45_n25_control_series",
+        "stock_predictor/backtests/v45_n25_research_v2",
+        "stock_predictor/backtests/v45_n25_research_v3",
+        "stock_predictor/backtests/v45_n25_research_v4",
+        "stock_predictor/backtests/v45_n25_research_v5",
+        "stock_predictor/backtests/v45_n25_research_v6",
+        "stock_predictor/backtests/v45_n25_research_v7",
+        "stock_predictor/backtests/v45_n25_research_v8",
+        "stock_predictor/backtests/v45_n25_research_v9",
+        "stock_predictor/v5"
+      ],
+      "may_import": [
+        "control_plane",
+        "research_runtime",
+        "data_processing"
+      ],
+      "purpose": "typed research orchestration and calculations"
+    },
+    {
+      "id": "adapters",
+      "paths": [
+        "stock_predictor/broker",
+        "stock_predictor/live"
+      ],
+      "may_import": [
+        "control_plane"
+      ],
+      "purpose": "provider, broker and persistence boundaries"
+    }
+  ],
+  "required_paths": [
+    "AGENTS.md",
+    "CURRENT_MODEL.md",
+    "agent.md",
+    "docs/architecture/AGENT_READY_TARGET_ARCHITECTURE.md",
+    "stock_predictor/__init__.py",
+    "stock_predictor/project_manifest.json",
+    "stock_predictor/research_model_registry.json",
+    "stock_predictor/check_research_model_registry.py",
+    "stock_predictor/control_plane/__init__.py",
+    "stock_predictor/control_plane/project.py",
+    "stock_predictor/control_plane/model_registry.py",
+    "stock_predictor/control_plane/architecture.py",
+    "stock_predictor/control_plane/tasks.py",
+    "stock_predictor/research_runtime/__init__.py",
+    "stock_predictor/research_runtime/bundles.py",
+    "stock_predictor/research_runtime/artifacts.py",
+    "stock_predictor/backtest_v4_n25_multifactor.py.gz.b64",
+    "stock_predictor/backtests/v4_n25_multifactor_runtime/__init__.py",
+    "stock_predictor/backtests/v4_n25_multifactor_runtime/application.py",
+    "stock_predictor/backtests/v4_n25_multifactor_runtime/cli.py",
+    "stock_predictor/backtests/v4_n25_multifactor_runtime/runner_contract.json",
+    "stock_predictor/devtools/__init__.py",
+    "stock_predictor/devtools/agent_cli.py",
+    "stock_predictor/data_processing/minute_parquet.py",
+    "stock_predictor/data_processing/daily_parquet.py",
+    "stock_predictor/data_processing/dataset_registry.py",
+    "stock_predictor/data_processing/datasets/v45_n25_market_data_v1.json",
+    "stock_predictor/repository_language_stats.py",
+    "scripts/run_v45_n25_cached_optimization_local.ps1"
+  ],
+  "canonical_commands": {
+    "context": "python -m stock_predictor.devtools.agent_cli context",
+    "doctor": "python -m stock_predictor.devtools.agent_cli doctor",
+    "architecture_check": "python -m stock_predictor.devtools.agent_cli check",
+    "task_list": "python -m stock_predictor.devtools.agent_cli tasks",
+    "registry_check": "python stock_predictor/check_research_model_registry.py",
+    "impact_from_integration_base": "python -m stock_predictor.devtools.agent_cli impact --base integration/v5-t212-alpaca-massive",
+    "v4_n25_runner_verify": "python -m stock_predictor.backtests.v4_n25_multifactor_runtime.cli --runner-verify",
+    "v4_n25_runner_self_test": "python -m stock_predictor.devtools.agent_cli run-task v4-n25-self-test",
+    "data_contract_tests": "python -m stock_predictor.devtools.agent_cli run-task data-contract-tests",
+    "dataset_spec_validate": "python -m stock_predictor.devtools.agent_cli run-task dataset-spec-validate",
+    "v45_cached_self_test": "python -m stock_predictor.devtools.agent_cli run-task v45-cached-self-test"
+  },
+  "tasks": {
+    "architecture-check": {
+      "description": "Validate repository architecture, safety boundaries and model identity.",
+      "argv": [
+        "{python}",
+        "-m",
+        "stock_predictor.devtools.agent_cli",
+        "check"
+      ],
+      "timeout_seconds": 60
+    },
+    "registry-check": {
+      "description": "Validate the protected research-model registry.",
+      "argv": [
+        "{python}",
+        "stock_predictor/check_research_model_registry.py"
+      ],
+      "timeout_seconds": 60
+    },
+    "v4-n25-verify": {
+      "description": "Verify the V4 N25 runner contract, model IDs, source hash and compilation.",
+      "argv": [
+        "{python}",
+        "-m",
+        "stock_predictor.backtests.v4_n25_multifactor_runtime.cli",
+        "--runner-verify"
+      ],
+      "timeout_seconds": 60
+    },
+    "v4-n25-self-test": {
+      "description": "Run the immutable bundled V4 N25 source self-test through the typed runtime.",
+      "argv": [
+        "{python}",
+        "-m",
+        "stock_predictor.backtests.v4_n25_multifactor_runtime.cli",
+        "--self-test"
+      ],
+      "timeout_seconds": 180
+    },
+    "v4-n25-focused-tests": {
+      "description": "Run the focused runtime, compatibility and architecture tests for V4 N25.",
+      "argv": [
+        "{python}",
+        "-m",
+        "pytest",
+        "-q",
+        "stock_predictor/tests/test_research_runtime_bundle.py",
+        "stock_predictor/tests/test_v4_n25_runner_architecture.py",
+        "stock_predictor/tests/test_agent_architecture.py"
+      ],
+      "timeout_seconds": 300
+    },
+    "data-contract-tests": {
+      "description": "Validate PR20/PR21 market-data sequencing and normalized repository-language composition.",
+      "argv": [
+        "{python}",
+        "-m",
+        "pytest",
+        "-q",
+        "stock_predictor/tests/test_minute_parquet.py",
+        "stock_predictor/tests/test_daily_parquet.py",
+        "stock_predictor/tests/test_dataset_registry.py",
+        "stock_predictor/tests/test_repository_language_stats.py"
+      ],
+      "timeout_seconds": 300
+    },
+    "dataset-spec-validate": {
+      "description": "Validate the committed V4.5 N25 dataset specification without building local stores.",
+      "argv": [
+        "{python}",
+        "-m",
+        "stock_predictor.data_processing.dataset_registry",
+        "validate",
+        "--repo-root",
+        ".",
+        "--spec",
+        "v45_n25_market_data_v1"
+      ],
+      "timeout_seconds": 60
+    },
+    "v45-cached-self-test": {
+      "description": "Validate the cached V6/V7/V8 family engine contract.",
+      "argv": [
+        "{python}",
+        "-m",
+        "stock_predictor.backtests.v45_n25_control_series.run_cached_families",
+        "--self-test"
+      ],
+      "timeout_seconds": 60
+    }
+  },
+  "change_impact_rules": [
+    {
+      "id": "control_plane",
+      "patterns": [
+        "AGENTS.md",
+        "docs/architecture/**",
+        "stock_predictor/project_manifest.json",
+        "stock_predictor/control_plane/**",
+        "stock_predictor/devtools/**",
+        "stock_predictor/check_research_model_registry.py"
+      ],
+      "checks": [
+        "python -m stock_predictor.devtools.agent_cli run-task architecture-check",
+        "python -m pytest -q stock_predictor/tests/test_agent_architecture.py"
+      ]
+    },
+    {
+      "id": "research_runtime",
+      "patterns": [
+        "stock_predictor/research_runtime/**",
+        "stock_predictor/tests/test_research_runtime_bundle.py"
+      ],
+      "checks": [
+        "python -m stock_predictor.devtools.agent_cli run-task v4-n25-verify",
+        "python -m stock_predictor.devtools.agent_cli run-task v4-n25-focused-tests"
+      ]
+    },
+    {
+      "id": "model_identity",
+      "patterns": [
+        "CURRENT_MODEL.md",
+        "agent.md",
+        "stock_predictor/research_model_registry.json",
+        "stock_predictor/research_model_registry.schema.json"
+      ],
+      "checks": [
+        "python -m stock_predictor.devtools.agent_cli run-task registry-check",
+        "python -m stock_predictor.devtools.agent_cli run-task architecture-check"
+      ]
+    },
+    {
+      "id": "data_processing",
+      "patterns": [
+        "stock_predictor/data_processing/**",
+        "stock_predictor/repository_language_stats.py",
+        "stock_predictor/tests/test_minute_parquet.py",
+        "stock_predictor/tests/test_daily_parquet.py",
+        "stock_predictor/tests/test_dataset_registry.py",
+        "stock_predictor/tests/test_repository_language_stats.py",
+        "scripts/build_minute_parquet.ps1",
+        "scripts/build_model_dataset.ps1",
+        ".github/workflows/minute-parquet-polars.yml"
+      ],
+      "checks": [
+        "python -m stock_predictor.devtools.agent_cli run-task data-contract-tests",
+        "python -m stock_predictor.devtools.agent_cli run-task dataset-spec-validate"
+      ]
+    },
+    {
+      "id": "v4_n25",
+      "patterns": [
+        "stock_predictor/backtest_v4_n25_multifactor*",
+        "stock_predictor/backtests/v4_n25_multifactor_runtime/**",
+        "stock_predictor/backtests/v4_n25_multifactor/**",
+        "stock_predictor/tests/test_v4_n25_runner_architecture.py",
+        ".github/workflows/stock-backtest-v4-n25-multifactor.yml"
+      ],
+      "checks": [
+        "python -m stock_predictor.devtools.agent_cli run-task registry-check",
+        "python -m stock_predictor.devtools.agent_cli run-task v4-n25-verify",
+        "python -m stock_predictor.devtools.agent_cli run-task v4-n25-self-test",
+        "python -m stock_predictor.devtools.agent_cli run-task v4-n25-focused-tests"
+      ]
+    },
+    {
+      "id": "v45",
+      "patterns": [
+        "stock_predictor/backtest_v45*",
+        "stock_predictor/backtests/v45_hybrid_stop/**",
+        "stock_predictor/backtests/v45_n25_control_series/**",
+        "stock_predictor/backtests/v45_n25_research_v*/**",
+        "stock_predictor/backtests/v45_n25_selection/**",
+        "scripts/run_v45_n25_*.ps1",
+        ".github/workflows/v45-*.yml"
+      ],
+      "checks": [
+        "python stock_predictor/check_research_model_registry.py",
+        "python -m stock_predictor.devtools.agent_cli run-task v45-cached-self-test",
+        "python -m stock_predictor.devtools.agent_cli run-task dataset-spec-validate"
+      ]
+    },
+    {
+      "id": "broker_execution",
+      "patterns": [
+        "stock_predictor/broker/**",
+        "stock_predictor/live/**",
+        "stock_predictor/execution_route_policy.md",
+        ".github/workflows/trading212-readonly-probe.yml",
+        ".github/workflows/v4-t212-shadow.yml"
+      ],
+      "checks": [
+        "python stock_predictor/check_research_model_registry.py",
+        "python -m pytest -q stock_predictor/tests/test_broker_static_contracts.py stock_predictor/tests/test_reconciliation_fail_closed.py stock_predictor/tests/test_order_restart_safety.py"
+      ]
+    },
+    {
+      "id": "v5",
+      "patterns": [
+        "stock_predictor/v5/**",
+        "stock_predictor/tests/test_v5_*",
+        ".github/workflows/v5-*"
+      ],
+      "checks": [
+        "python stock_predictor/check_research_model_registry.py",
+        "python -m pytest -q stock_predictor/tests/test_v5_dataset_contract.py stock_predictor/tests/test_v5_dataset_builder_leakage.py stock_predictor/tests/test_v5_model_contract.py stock_predictor/tests/test_v5_portfolio_policy.py"
+      ]
+    }
+  ]
+}

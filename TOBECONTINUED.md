@@ -24,18 +24,20 @@ in [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md) and must be read in the private repository
 - [x] Published tree verified against the known problem classes (no matches).
 - [x] History-free start from source snapshot `c196dba4`; private history not imported.
 - [x] Root documentation, package markers and `contract_fingerprints.py` transferred.
-- [ ] Transfer the remaining research documents under `research/`.
-- [ ] Transfer the remaining `opportunity_portfolio_research` implementation and tests.
-- [ ] Transfer the selected compact artifacts under `artifacts/`.
+- [x] Research documents under `research/` transferred (18 files).
+- [x] `opportunity_portfolio_research` implementation and self-tests transferred (241 files).
+- [x] Compact artifacts under `artifacts/` transferred (64 evidence files).
+- [x] `docs/architecture/`, `docs/external-validation/` and the protected-identity
+      files under `stock_predictor/` transferred.
 - [x] `CURRENT_MODEL.md` sizing and named-broker details reviewed and approved for
       publication as research configuration parameters (see `QA_TOOL_FAILURE_LOG.md` P8).
+- [ ] Decide whether the mirror's own commit metadata should be corrected
+      (see `QA_TOOL_FAILURE_LOG.md` P9) — requires rewriting published history.
 
-**Blocker.** Hosted agent sessions cannot complete the remaining transfers: a session
-scoped to this public repository has no read access to the private repository, and an
-upstream write-safety filter blocks some research source files even when they contain
-no sensitive material. The remaining files must be copied locally from the private
-repository into a history-free checkout and pushed from that machine. See
-`PUBLIC_SCOPE.md` and incidents `P3`-`P7` in `QA_TOOL_FAILURE_LOG.md`.
+The documented research scope is now fully mirrored. Everything still absent is
+excluded by contract, not pending; `PUBLIC_SCOPE.md` lists it. Large artifact
+stores, private runtime incident history and all business/customer automation
+remain out of scope by design.
 
 ## Authority map
 

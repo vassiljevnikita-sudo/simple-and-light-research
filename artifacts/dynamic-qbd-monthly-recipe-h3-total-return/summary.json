@@ -1,0 +1,435 @@
+{
+  "arms": [
+    "R0_FROZEN_RECIPE_MONTHLY_REFIT",
+    "R1_ROLLING_RECIPE_MONTHLY_REFIT",
+    "R2_HYSTERESIS_RECIPE_MONTHLY_REFIT",
+    "R3_RIDGE_HGB_50_50_PERCENTILE_BLEND"
+  ],
+  "authority": "SHADOW_ONLY_NO_PROMOTION_NO_HOLDOUT",
+  "benchmark_return_contract": {
+    "distribution_manifest": {
+      "first_ex_date": "2012-06-21",
+      "last_ex_date": "2026-06-15",
+      "output_path": "D:\\simple-and-light-opportunity-portfolio-qbd\\artifacts\\alpaca-urth-daily-repair\\URTH-distributions.parquet",
+      "output_sha256": "5d8fbf251e73191d74299cb56614328b3581528bcc14c36787a0a683ae5562b1",
+      "rows": 31,
+      "schema_version": "BLACKROCK_URTH_DISTRIBUTIONS_V1",
+      "source": "BlackRock/iShares",
+      "source_sha256": "50cc7f8e7b9e65a978c87e2e1564ce349c16364b26e829793a75be030ded3807",
+      "source_url": "https://www.ishares.com/us/products/239696/ishares-msci-world-etf",
+      "ticker": "URTH",
+      "usage": "CASH_DISTRIBUTION_LEDGER_FOR_STATEFUL_TOTAL_RETURN_REPLAY"
+    },
+    "distributions": "ISHARES_OFFICIAL_CASH_DISTRIBUTIONS",
+    "prices": "ALPACA_SIP_1DAY_SPLIT_ADJUSTED",
+    "reinvestment": "PAYABLE_DATE_OPEN"
+  },
+  "best_capacity_by_terminal_value": {
+    "arm": "N3",
+    "benchmark_gross_distribution_income_eur": 688.7958599806512,
+    "cdar_95": -0.23120523213890423,
+    "drawdown_duration_sessions": 229,
+    "expected_shortfall_95": -0.03775723088645887,
+    "gross_distribution_income_eur": 648.9959987185608,
+    "max_names": 3,
+    "relative_max_drawdown": -0.32468545252042225,
+    "terminal_excess_eur": 3440.2047461211732,
+    "terminal_relative_return": 0.2514611314285342,
+    "terminal_value": 17121.06558762616,
+    "time_under_water_fraction": 0.9916567342073898,
+    "total_cost_eur": 1154.7492759208856,
+    "trade_count": 144,
+    "urth_terminal_value": 13680.860841504986
+  },
+  "boundary_attribution_validation": [
+    {
+      "arm": "R0_FROZEN_RECIPE_MONTHLY_REFIT",
+      "daily_compounded_relative_return": -0.18075037301219699,
+      "maximum_absolute_error": 1.432187701766452e-14,
+      "segment_compounded_relative_return": -0.18075037301219699,
+      "sessions": 839,
+      "status": "PASS",
+      "terminal_relative_return": -0.1807503730122113
+    },
+    {
+      "arm": "R1_ROLLING_RECIPE_MONTHLY_REFIT",
+      "daily_compounded_relative_return": -0.12188699022329053,
+      "maximum_absolute_error": 1.4654943925052066e-14,
+      "segment_compounded_relative_return": -0.12188699022329541,
+      "sessions": 839,
+      "status": "PASS",
+      "terminal_relative_return": -0.12188699022330518
+    },
+    {
+      "arm": "R2_HYSTERESIS_RECIPE_MONTHLY_REFIT",
+      "daily_compounded_relative_return": -0.18075037301219699,
+      "maximum_absolute_error": 1.432187701766452e-14,
+      "segment_compounded_relative_return": -0.18075037301219699,
+      "sessions": 839,
+      "status": "PASS",
+      "terminal_relative_return": -0.1807503730122113
+    },
+    {
+      "arm": "R3_RIDGE_HGB_50_50_PERCENTILE_BLEND",
+      "daily_compounded_relative_return": -0.10110225976348985,
+      "maximum_absolute_error": 6.661338147750939e-15,
+      "segment_compounded_relative_return": -0.10110225976348985,
+      "sessions": 839,
+      "status": "PASS",
+      "terminal_relative_return": -0.10110225976349652
+    }
+  ],
+  "candidate_execution_quality": [
+    {
+      "arm": "R0_FROZEN_RECIPE_MONTHLY_REFIT",
+      "contract": "CANDIDATE_DIAGNOSTIC_ONLY_ACTUAL_EXECUTIONS_REMAIN_FAIL_CLOSED",
+      "eligible_candidate_rows": 176,
+      "invalid_next_open_candidate_fraction": 0.0,
+      "invalid_next_open_candidate_rows": 0,
+      "unique_invalid_tickers": 0
+    },
+    {
+      "arm": "R1_ROLLING_RECIPE_MONTHLY_REFIT",
+      "contract": "CANDIDATE_DIAGNOSTIC_ONLY_ACTUAL_EXECUTIONS_REMAIN_FAIL_CLOSED",
+      "eligible_candidate_rows": 198,
+      "invalid_next_open_candidate_fraction": 0.0,
+      "invalid_next_open_candidate_rows": 0,
+      "unique_invalid_tickers": 0
+    },
+    {
+      "arm": "R2_HYSTERESIS_RECIPE_MONTHLY_REFIT",
+      "contract": "CANDIDATE_DIAGNOSTIC_ONLY_ACTUAL_EXECUTIONS_REMAIN_FAIL_CLOSED",
+      "eligible_candidate_rows": 176,
+      "invalid_next_open_candidate_fraction": 0.0,
+      "invalid_next_open_candidate_rows": 0,
+      "unique_invalid_tickers": 0
+    },
+    {
+      "arm": "R3_RIDGE_HGB_50_50_PERCENTILE_BLEND",
+      "contract": "CANDIDATE_DIAGNOSTIC_ONLY_ACTUAL_EXECUTIONS_REMAIN_FAIL_CLOSED",
+      "eligible_candidate_rows": 248,
+      "invalid_next_open_candidate_fraction": 0.0,
+      "invalid_next_open_candidate_rows": 0,
+      "unique_invalid_tickers": 0
+    }
+  ],
+  "capacity_ablation": [
+    {
+      "arm": "N1",
+      "benchmark_gross_distribution_income_eur": 688.7958599806512,
+      "cdar_95": -0.26926972133483595,
+      "drawdown_duration_sessions": 356,
+      "expected_shortfall_95": -0.041534914415315635,
+      "gross_distribution_income_eur": 521.9808655185602,
+      "max_names": 1,
+      "relative_max_drawdown": -0.38668956053261894,
+      "terminal_excess_eur": -1667.5189516349164,
+      "terminal_relative_return": -0.12188699022330518,
+      "terminal_value": 12013.34188987007,
+      "time_under_water_fraction": 0.9856972586412396,
+      "total_cost_eur": 1107.026480281376,
+      "trade_count": 105,
+      "urth_terminal_value": 13680.860841504986
+    },
+    {
+      "arm": "N2",
+      "benchmark_gross_distribution_income_eur": 688.7958599806512,
+      "cdar_95": -0.24280400550379083,
+      "drawdown_duration_sessions": 229,
+      "expected_shortfall_95": -0.038790322025088086,
+      "gross_distribution_income_eur": 637.1656394701731,
+      "max_names": 2,
+      "relative_max_drawdown": -0.33270026709760747,
+      "terminal_excess_eur": 3034.459154998807,
+      "terminal_relative_return": 0.2218032322785468,
+      "terminal_value": 16715.319996503793,
+      "time_under_water_fraction": 0.9928486293206198,
+      "total_cost_eur": 1132.0368240504718,
+      "trade_count": 132,
+      "urth_terminal_value": 13680.860841504986
+    },
+    {
+      "arm": "N3",
+      "benchmark_gross_distribution_income_eur": 688.7958599806512,
+      "cdar_95": -0.23120523213890423,
+      "drawdown_duration_sessions": 229,
+      "expected_shortfall_95": -0.03775723088645887,
+      "gross_distribution_income_eur": 648.9959987185608,
+      "max_names": 3,
+      "relative_max_drawdown": -0.32468545252042225,
+      "terminal_excess_eur": 3440.2047461211732,
+      "terminal_relative_return": 0.2514611314285342,
+      "terminal_value": 17121.06558762616,
+      "time_under_water_fraction": 0.9916567342073898,
+      "total_cost_eur": 1154.7492759208856,
+      "trade_count": 144,
+      "urth_terminal_value": 13680.860841504986
+    },
+    {
+      "arm": "N6",
+      "benchmark_gross_distribution_income_eur": 688.7958599806512,
+      "cdar_95": -0.2604915166903289,
+      "drawdown_duration_sessions": 229,
+      "expected_shortfall_95": -0.037838142228360745,
+      "gross_distribution_income_eur": 629.6173023647787,
+      "max_names": 6,
+      "relative_max_drawdown": -0.3574084169245989,
+      "terminal_excess_eur": 2559.6774891084224,
+      "terminal_relative_return": 0.1870991539759599,
+      "terminal_value": 16240.538330613408,
+      "time_under_water_fraction": 0.9928486293206198,
+      "total_cost_eur": 1103.6583671209507,
+      "trade_count": 154,
+      "urth_terminal_value": 13680.860841504986
+    }
+  ],
+  "drawdown_cause_classification": [
+    {
+      "arm": "R0_FROZEN_RECIPE_MONTHLY_REFIT",
+      "cause_classification": "A_SINGLE_TICKER_OUTLIER",
+      "episode_generations": 14,
+      "episode_sectors": 6,
+      "episode_tickers": 17,
+      "negative_active_excess_contribution_eur": 15157.331928109441,
+      "net_active_excess_contribution_eur": -3202.0446817838056,
+      "top_generation_negative_share": 0.2583411673864819,
+      "top_negative_generation": "817be492db020a442459d595",
+      "top_negative_ticker": "CVNA",
+      "top_ticker_negative_share": 0.7184257255774946
+    },
+    {
+      "arm": "R1_ROLLING_RECIPE_MONTHLY_REFIT",
+      "cause_classification": "A_SINGLE_TICKER_OUTLIER",
+      "episode_generations": 6,
+      "episode_sectors": 3,
+      "episode_tickers": 5,
+      "negative_active_excess_contribution_eur": 11115.257344321597,
+      "net_active_excess_contribution_eur": -4290.021912466823,
+      "top_generation_negative_share": 0.44374055032962967,
+      "top_negative_generation": "0910c3634152f18beaaea52f",
+      "top_negative_ticker": "CVNA",
+      "top_ticker_negative_share": 0.8636443570227954
+    },
+    {
+      "arm": "R2_HYSTERESIS_RECIPE_MONTHLY_REFIT",
+      "cause_classification": "A_SINGLE_TICKER_OUTLIER",
+      "episode_generations": 14,
+      "episode_sectors": 6,
+      "episode_tickers": 17,
+      "negative_active_excess_contribution_eur": 15157.331928109441,
+      "net_active_excess_contribution_eur": -3202.0446817838056,
+      "top_generation_negative_share": 0.2583411673864819,
+      "top_negative_generation": "817be492db020a442459d595",
+      "top_negative_ticker": "CVNA",
+      "top_ticker_negative_share": 0.7184257255774946
+    },
+    {
+      "arm": "R3_RIDGE_HGB_50_50_PERCENTILE_BLEND",
+      "cause_classification": "A_SINGLE_TICKER_OUTLIER",
+      "episode_generations": 20,
+      "episode_sectors": 6,
+      "episode_tickers": 15,
+      "negative_active_excess_contribution_eur": 22278.36536402304,
+      "net_active_excess_contribution_eur": -5674.7394220700035,
+      "top_generation_negative_share": 0.11470905022745863,
+      "top_negative_generation": "4199bb93f45037498461a289",
+      "top_negative_ticker": "CVNA",
+      "top_ticker_negative_share": 0.6019183365459676
+    }
+  ],
+  "drawdown_episodes": [
+    {
+      "arm": "R0_FROZEN_RECIPE_MONTHLY_REFIT",
+      "episode_sessions": 316,
+      "peak_date": "2022-08-01",
+      "relative_max_drawdown": -0.31038954546883524,
+      "trough_date": "2023-10-31"
+    },
+    {
+      "arm": "R1_ROLLING_RECIPE_MONTHLY_REFIT",
+      "episode_sessions": 91,
+      "peak_date": "2022-08-01",
+      "relative_max_drawdown": -0.38668956053261894,
+      "trough_date": "2022-12-07"
+    },
+    {
+      "arm": "R2_HYSTERESIS_RECIPE_MONTHLY_REFIT",
+      "episode_sessions": 316,
+      "peak_date": "2022-08-01",
+      "relative_max_drawdown": -0.31038954546883524,
+      "trough_date": "2023-10-31"
+    },
+    {
+      "arm": "R3_RIDGE_HGB_50_50_PERCENTILE_BLEND",
+      "episode_sessions": 452,
+      "peak_date": "2021-03-26",
+      "relative_max_drawdown": -0.4969893856931926,
+      "trough_date": "2023-01-10"
+    }
+  ],
+  "evaluation": {
+    "end": "2023-12-29",
+    "start": "2020-08-31"
+  },
+  "execution_resources": {
+    "affinity_enabled": true,
+    "available_capacity_fraction": 1.0,
+    "configured": true,
+    "contract": "FULL_CPU_CAPACITY_TARGETING_90_PERCENT_OBSERVED_UTILIZATION",
+    "logical_processors": 16,
+    "model_fit_processes": 1,
+    "native_threads_per_serial_fit": 16,
+    "reserve_logical_processors": 0,
+    "reserved_logical_processors": [],
+    "selected_logical_processors": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      1,
+      5,
+      9,
+      13,
+      3,
+      7,
+      11,
+      15
+    ],
+    "target_fraction": 0.9,
+    "target_logical_processors": 16
+  },
+  "final_holdout_opened": false,
+  "hysteresis_contract": {
+    "bootstrap_draws": 5000,
+    "minimum_paired_folds": 5,
+    "minimum_robust_delta": 0.005,
+    "probability_threshold": 0.9,
+    "registration": "FIXED_BEFORE_TOTAL_RETURN_R0_R3_REPLAY"
+  },
+  "model_artifact_provenance": {
+    "blend_generations": 40,
+    "cache_reused_this_invocation": 80,
+    "contract": "LEGACY_PRESENCE_AND_INPUT_CONTRACT_CACHE_REUSE_ONLY; SUPERSEDED_BY_GENERATION_MANIFEST_PROVENANCE_REQUIREMENT",
+    "fresh_fits_this_invocation": 0,
+    "physical_monthly_model_fits": 80
+  },
+  "monthly_refit_count": 40,
+  "portfolio_contract": {
+    "benchmark": "URTH",
+    "holding_days": 2,
+    "horizon": 3,
+    "initial_value": 10000.0,
+    "max_names": 1,
+    "roundtrip_bps": 20.0,
+    "sleeve": 0.5,
+    "tax": "PRE_TAX"
+  },
+  "portfolio_value_comparison": [
+    {
+      "arm": "R3_RIDGE_HGB_50_50_PERCENTILE_BLEND",
+      "benchmark_gross_distribution_income_eur": 688.7958599806512,
+      "cdar_95": -0.44598507947744864,
+      "drawdown_duration_sessions": 695,
+      "expected_shortfall_95": -0.04564871716185589,
+      "gross_distribution_income_eur": 459.39781774520037,
+      "relative_max_drawdown": -0.4969893856931926,
+      "terminal_excess_eur": -1383.1659465860848,
+      "terminal_relative_return": -0.10110225976349652,
+      "terminal_value": 12297.6948949189,
+      "time_under_water_fraction": 0.9702026221692491,
+      "total_cost_eur": 1478.8865833412497,
+      "trade_count": 143,
+      "urth_terminal_value": 13680.860841504986
+    },
+    {
+      "arm": "R1_ROLLING_RECIPE_MONTHLY_REFIT",
+      "benchmark_gross_distribution_income_eur": 688.7958599806512,
+      "cdar_95": -0.26926972133483595,
+      "drawdown_duration_sessions": 356,
+      "expected_shortfall_95": -0.041534914415315635,
+      "gross_distribution_income_eur": 521.9808655185602,
+      "relative_max_drawdown": -0.38668956053261894,
+      "terminal_excess_eur": -1667.5189516349164,
+      "terminal_relative_return": -0.12188699022330518,
+      "terminal_value": 12013.34188987007,
+      "time_under_water_fraction": 0.9856972586412396,
+      "total_cost_eur": 1107.026480281376,
+      "trade_count": 105,
+      "urth_terminal_value": 13680.860841504986
+    },
+    {
+      "arm": "R0_FROZEN_RECIPE_MONTHLY_REFIT",
+      "benchmark_gross_distribution_income_eur": 688.7958599806512,
+      "cdar_95": -0.29070192012417884,
+      "drawdown_duration_sessions": 356,
+      "expected_shortfall_95": -0.03651951472632663,
+      "gross_distribution_income_eur": 551.5245579333783,
+      "relative_max_drawdown": -0.31038954546883524,
+      "terminal_excess_eur": -2472.8207002301806,
+      "terminal_relative_return": -0.1807503730122113,
+      "terminal_value": 11208.040141274805,
+      "time_under_water_fraction": 0.9856972586412396,
+      "total_cost_eur": 1000.195913427808,
+      "trade_count": 94,
+      "urth_terminal_value": 13680.860841504986
+    },
+    {
+      "arm": "R2_HYSTERESIS_RECIPE_MONTHLY_REFIT",
+      "benchmark_gross_distribution_income_eur": 688.7958599806512,
+      "cdar_95": -0.29070192012417884,
+      "drawdown_duration_sessions": 356,
+      "expected_shortfall_95": -0.03651951472632663,
+      "gross_distribution_income_eur": 551.5245579333783,
+      "relative_max_drawdown": -0.31038954546883524,
+      "terminal_excess_eur": -2472.8207002301806,
+      "terminal_relative_return": -0.1807503730122113,
+      "terminal_value": 11208.040141274805,
+      "time_under_water_fraction": 0.9856972586412396,
+      "total_cost_eur": 1000.195913427808,
+      "trade_count": 94,
+      "urth_terminal_value": 13680.860841504986
+    }
+  ],
+  "price_boundary_quality": {
+    "benchmark": "URTH",
+    "benchmark_boundary_quality_empirically_measured": false,
+    "benchmark_invalid_close_dates": [],
+    "benchmark_invalid_open_dates": [],
+    "benchmark_provider_contract": "ALPACA_SIP_1DAY_DIRECT",
+    "benchmark_provider_contract_valid": true,
+    "benchmark_sessions": 839,
+    "close_tolerance_minutes": 5,
+    "end": "2023-12-29",
+    "open_tolerance_minutes": 5,
+    "replay_contract": "FAIL_ON_ANY_INVALID_BENCHMARK_CLOSE_OR_ANY_TRADED_OPEN/CLOSE",
+    "rows": 412354,
+    "schema_version": "DYNAMIC_QBD_PRICE_BOUNDARY_QUALITY_V3",
+    "start": "2020-08-31",
+    "stock_invalid_minute_close_rows_repaired_from_direct_daily": 3312,
+    "stock_invalid_minute_open_rows_repaired_from_direct_daily": 157,
+    "ticker_count": 495
+  },
+  "primary_contrast": "R1_ROLLING_RECIPE_MONTHLY_REFIT_MINUS_R0_FROZEN_RECIPE_MONTHLY_REFIT",
+  "primary_contrast_result": {
+    "cdar_95_delta": 0.021432198789342882,
+    "cost_delta_eur": 106.83056685356803,
+    "relative_max_drawdown_delta": -0.0763000150637837,
+    "terminal_relative_wealth_delta": 0.07185036263651967,
+    "terminal_value_delta_eur": 805.3017485952641,
+    "trade_count_delta": 11
+  },
+  "research_status": "SUPERSEDED_PROVENANCE_MANIFEST_REQUIRED",
+  "schema_version": "DYNAMIC_QBD_MONTHLY_RECIPE_EXPERIMENT_V2_TOTAL_RETURN",
+  "single_fold_r2_arm": "EXCLUDED_NOT_A_CHALLENGER",
+  "status": "SUPERSEDED_PROVENANCE_MANIFEST_REQUIRED",
+  "stock_execution_provider_contract": {
+    "direct_daily_stock_root": "D:\\simple-and-light-opportunity-portfolio-qbd\\artifacts\\alpaca-stock-direct-daily-store",
+    "fallback": "ALPACA_SIP_1DAY_DIRECT_ONLY_WHERE_PRIMARY_BOUNDARY_INVALID",
+    "primary": "MINUTE_DERIVED_DAILY_BOUNDARIES",
+    "valid_primary_rows_are_never_replaced": true
+  }
+}

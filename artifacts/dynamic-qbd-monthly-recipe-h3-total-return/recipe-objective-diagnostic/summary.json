@@ -1,0 +1,37 @@
+{
+  "authority": "DIAGNOSTIC_ONLY_NO_RECIPE_SELECTION_NO_PROMOTION_NO_HOLDOUT",
+  "available_prediction_contract": "ONE_SELECTED_CANDIDATE_PER_FOLD",
+  "correlations": [
+    {
+      "interpretation": "DESCRIPTIVE_ONLY_NOT_CANDIDATE_COMPARATIVE",
+      "observation_unit": "SELECTED_WALK_FORWARD_FOLD",
+      "outcome": "top_score_mean_net_excess",
+      "pearson_correlation": -0.22354330733653088,
+      "selector_metric": "fold_spearman"
+    },
+    {
+      "interpretation": "DESCRIPTIVE_ONLY_NOT_CANDIDATE_COMPARATIVE",
+      "observation_unit": "SELECTED_WALK_FORWARD_FOLD",
+      "outcome": "top_score_median_net_excess",
+      "pearson_correlation": 0.04032236406043624,
+      "selector_metric": "fold_spearman"
+    },
+    {
+      "interpretation": "DESCRIPTIVE_ONLY_NOT_CANDIDATE_COMPARATIVE",
+      "observation_unit": "SELECTED_WALK_FORWARD_FOLD",
+      "outcome": "top_score_compounded_excess_proxy",
+      "pearson_correlation": 0.414111823712969,
+      "selector_metric": "fold_spearman"
+    }
+  ],
+  "horizon_sessions": 3,
+  "missing_contract": "ALL_CANDIDATES_X_FOLDS_OOS_SCORES_WITH_CAUSAL_TAIL_AND_PORTFOLIO_REPLAYS",
+  "required_before_selector_change": [
+    "store candidate-level OOS scores for every candidate and fold",
+    "pre-register top-tail and stateful QBD portfolio objectives",
+    "compare candidates by fold/time blocks, not correlated QBD cells"
+  ],
+  "schema_version": "DYNAMIC_QBD_RECIPE_OBJECTIVE_AUDIT_V1",
+  "selected_fold_count": 8,
+  "status": "COMPARATIVE_RECIPE_TEST_BLOCKED_CANDIDATE_LEVEL_OOS_SCORES_UNAVAILABLE"
+}

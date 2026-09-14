@@ -1,0 +1,32 @@
+{
+  "status": "RESEARCH_CONTRACT_CHANGED_RERUN_REQUIRED",
+  "decision": "NOT_READY_FOR_FINAL_HOLDOUT",
+  "paper_trading_only": true,
+  "final_holdout_opened": false,
+  "final_holdout_locked": true,
+  "ready_for_final_holdout": false,
+  "supersedes_development_commit": "dad597c94732423b0f12e49b93c4829a21a1f0e4",
+  "reason": [
+    "The dad597c replay used an all-stock score quantile in walk-forward policy selection instead of the Opportunity-Core daily-top-score threshold contract.",
+    "The Stage-A budget of 4 collapsed the search to max_names=1 and holding_days=1 and skipped dynamic exits.",
+    "The full-development replay implicitly recomputed a different threshold from daily top scores, so it was not policy-identical to the walk-forward tests.",
+    "Fold aggregation/readiness, parameter plateau, regime and concentration diagnostics have since been corrected in code.",
+    "A fresh Development replay is required before any portfolio evidence or frozen policy can be used."
+  ],
+  "new_contract": {
+    "threshold": "historical daily-top-score quantile, persisted numerically and reused",
+    "balanced_stage_a_dimensions": {
+      "score_quantile": [0.9, 0.95, 0.975, 0.99],
+      "top_fraction": [0.005, 0.01, 0.025],
+      "max_names": [1, 2, 3, 5],
+      "holding_days": [1, 2, 3, 5, 7, 10, 15, 20]
+    },
+    "policy_ranking": "lexicographic chronological-fold robustness",
+    "max_workers_default": 2,
+    "max_workers_hard_cap": 4,
+    "native_threads_per_worker_default": 1
+  },
+  "ci_status": "NOT_EXECUTED_BILLING_BLOCKED",
+  "ci_note": "GitHub Actions created run 31263920860 but the job was not started because GitHub reported failed recent account payments or a spending-limit requirement.",
+  "next_action": "Run self-test locally, then rerun the complete corrected Development suite with the canonical V5 predictions and daily store. Keep final holdout closed."
+}

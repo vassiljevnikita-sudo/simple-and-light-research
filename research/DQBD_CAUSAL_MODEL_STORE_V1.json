@@ -1,0 +1,67 @@
+{
+  "baseline_commit": "e6b72df4ecb0e595293df62099860781436181dc",
+  "calibration": "GENERATION_SPECIFIC",
+  "contract_hash": "5a8fa173bc12f341064bb446e18e94ee8fd398ddc9f27b5e6cbd49d5fce9253f",
+  "development_end": "2025-12-31",
+  "expected_fold_states": {
+    "long": 4,
+    "primary": 3,
+    "short": 2
+  },
+  "experiment_version": "DQBD_CAUSAL_MODEL_STORE_V1",
+  "generation_trigger": "NEW_MATURED_FOLD_STATE",
+  "portfolio": {
+    "allocation": "EQUAL_ACTIVE",
+    "benchmark": "MSCI_WORLD_IMPLEMENTABLE_PROXY_V1",
+    "execution": "NEXT_OPEN",
+    "exit": "FIXED",
+    "learned_exit": false,
+    "replacement": "IGNORE_NEW",
+    "sleeve_semantics": "UNCHANGED",
+    "transaction_costs": "EXISTING_CANONICAL_COST_CONTRACT"
+  },
+  "prospective_holdout_start": "2026-07-25",
+  "recipe_eligibility": {
+    "allowed_exclusion": "PREDECLARED_TECHNICAL_OR_CAUSAL_UNTRAINABILITY_ONLY",
+    "calibration_feasible": true,
+    "finite_model_fit": true,
+    "forbidden_inputs": [
+      "CAGR",
+      "SHARPE",
+      "FUTURE_RANK",
+      "POST_SEED_PERFORMANCE"
+    ],
+    "identity_and_provenance_complete": true,
+    "minimum_calibration_sessions": 252,
+    "minimum_fold_observations": 2,
+    "minimum_matured_candidate_folds": 2,
+    "minimum_training_sessions": 504,
+    "required_features_available": true
+  },
+  "recipe_universe": {
+    "candidate_source": "candidate_oos.load_primary_candidate_registry",
+    "horizons": "H1-H30",
+    "performance_based_exclusion": false,
+    "recipe_families": [
+      "RIDGE_LOGISTIC",
+      "HIST_GRADIENT_BOOSTING"
+    ],
+    "selection_rule": "ALL_STRUCTURALLY_ELIGIBLE_RECIPES",
+    "source": "existing_dynamic_qbd_factory_contract"
+  },
+  "seeds": {
+    "long": "2021-08-31",
+    "primary": "2021-02-26",
+    "short": "2020-08-31"
+  },
+  "time_semantics": {
+    "decision_at": "orchestrator point-in-time decision date",
+    "execution_at": "next-open portfolio execution date",
+    "generation_created_at": "append-only ModelStore publication date",
+    "matured_at": "date on which target/evidence becomes observable",
+    "observation_date": "source observation/session date",
+    "prediction_date": "causal model prediction/decision date",
+    "target_terminal_date": "horizon-specific target terminal date"
+  },
+  "training_window": "EXPANDING"
+}

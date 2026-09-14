@@ -1,0 +1,355 @@
+{
+  "cpu_fallback_backend": "SKLEARN_CANONICAL_CPU_HGB_UNCHANGED",
+  "development_end": "2025-12-31",
+  "evaluation_contract_hash": "7e5d2d959faffdba22b11ef07b3bb6ae18048c40bc662cb177b5aff15b7c35f4",
+  "execution_scheduler_policy": "JOB_AWARE_RAM_GPU_PREP_PIPELINE_V2",
+  "gpu_prep_workers_per_device": 2,
+  "gpu_pretraining_contract_hash": "470b6682fe049825c7674329a6fecc5dc9f8c69ddbe946e731343e213f4dfa89",
+  "gpu_queue_policy": "TWO_PREP_WORKERS_PER_DEVICE_HGB_PRIORITY_V3",
+  "gpu_runtime_monitoring": "NVIDIA_SMI_PLUS_LIBRE_HARDWARE_MONITOR_OPENCL_V1",
+  "hgb_device_policy": "DUAL_GPU_OPENCL_HGB_AMD_TDR_GUARD_V4",
+  "hgb_execution_backend": "OPENCL_LIGHTGBM_GPU_HGB_SKLEARN_BUNDLE_V5_DEVICE_FINGERPRINTED",
+  "hgb_kernel_policy": "AMD_MAX_BIN_15_NVIDIA_MAX_BIN_63_SINGLE_PRECISION_V4_DEVICE_IDENTITY",
+  "holdout_boundary": "2026-07-25",
+  "native_threads_per_worker": 1,
+  "queue_capacity": 52,
+  "ram_admission_policy": "JOB_AWARE_P90_INCREMENTAL_RSS_26_LANE_DYNAMIC_ADMISSION_V2",
+  "requested_worker_count": 26,
+  "ridge_execution_backend": "OPENCL_FP64_RIDGE_REGRESSOR_SKLEARN_BUNDLE_V2_SHARED_GRAM",
+  "run_gate_hash": "e139f34ba0db8141785959affde96621648625c2ac4472a69beca9080e16624f",
+  "runtime_contract": {
+    "affinity_enabled": true,
+    "affinity_target_logical_processors": 26,
+    "available_capacity_fraction": 0.8125,
+    "capacity_fraction_enforced": true,
+    "configured": true,
+    "contract": "BOUNDED_CPU_CAPACITY_WITH_MAX_95PCT_SYSTEM_MEMORY_SUITE_WIDE_WINDOWS_JOB_OBJECT",
+    "effective_capacity_fraction": 0.8125,
+    "effective_reserved_logical_processors": 6,
+    "logical_processors": 32,
+    "memory_contract": "MAX_95PCT_SYSTEM_MEMORY_SUITE_WIDE_WINDOWS_JOB_OBJECT",
+    "memory_enforcement": "WINDOWS_JOB_OBJECT_JOB_MEMORY",
+    "memory_headroom_gb": 4.789198303222648,
+    "memory_limit_applied": true,
+    "memory_limit_bytes": 97704887910,
+    "memory_limit_fraction": 0.95,
+    "memory_limit_gb": 90.99476776123046,
+    "memory_limit_inherited": false,
+    "memory_limit_reused": true,
+    "memory_soft_target_bytes": 92562525388,
+    "memory_soft_target_fraction": 0.9,
+    "memory_soft_target_gb": 86.20556945800782,
+    "memory_total_system_gb": 95.78396606445312,
+    "model_fit_processes": 26,
+    "native_threads_per_worker": 1,
+    "physical_primary_worker_slots": 24,
+    "reserve_logical_processors": 6,
+    "reserved_logical_processors": [
+      3,
+      7,
+      9,
+      11,
+      13,
+      15
+    ],
+    "selected_logical_processors": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      1,
+      5
+    ],
+    "smt_overflow_worker_slots": 2,
+    "target_fraction": 0.9,
+    "target_logical_processors": 26,
+    "worker_map": [
+      {
+        "core_index": 0,
+        "efficiency_class": 1,
+        "group": 0,
+        "logical_processor": 0,
+        "role": "physical_primary",
+        "smt_siblings": [
+          1
+        ],
+        "worker_slot": 0
+      },
+      {
+        "core_index": 2,
+        "efficiency_class": 1,
+        "group": 0,
+        "logical_processor": 2,
+        "role": "physical_primary",
+        "smt_siblings": [
+          3
+        ],
+        "worker_slot": 1
+      },
+      {
+        "core_index": 4,
+        "efficiency_class": 1,
+        "group": 0,
+        "logical_processor": 4,
+        "role": "physical_primary",
+        "smt_siblings": [
+          5
+        ],
+        "worker_slot": 2
+      },
+      {
+        "core_index": 6,
+        "efficiency_class": 1,
+        "group": 0,
+        "logical_processor": 6,
+        "role": "physical_primary",
+        "smt_siblings": [
+          7
+        ],
+        "worker_slot": 3
+      },
+      {
+        "core_index": 8,
+        "efficiency_class": 1,
+        "group": 0,
+        "logical_processor": 8,
+        "role": "physical_primary",
+        "smt_siblings": [
+          9
+        ],
+        "worker_slot": 4
+      },
+      {
+        "core_index": 10,
+        "efficiency_class": 1,
+        "group": 0,
+        "logical_processor": 10,
+        "role": "physical_primary",
+        "smt_siblings": [
+          11
+        ],
+        "worker_slot": 5
+      },
+      {
+        "core_index": 12,
+        "efficiency_class": 1,
+        "group": 0,
+        "logical_processor": 12,
+        "role": "physical_primary",
+        "smt_siblings": [
+          13
+        ],
+        "worker_slot": 6
+      },
+      {
+        "core_index": 14,
+        "efficiency_class": 1,
+        "group": 0,
+        "logical_processor": 14,
+        "role": "physical_primary",
+        "smt_siblings": [
+          15
+        ],
+        "worker_slot": 7
+      },
+      {
+        "core_index": 16,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 16,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 8
+      },
+      {
+        "core_index": 17,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 17,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 9
+      },
+      {
+        "core_index": 18,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 18,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 10
+      },
+      {
+        "core_index": 19,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 19,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 11
+      },
+      {
+        "core_index": 20,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 20,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 12
+      },
+      {
+        "core_index": 21,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 21,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 13
+      },
+      {
+        "core_index": 22,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 22,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 14
+      },
+      {
+        "core_index": 23,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 23,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 15
+      },
+      {
+        "core_index": 24,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 24,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 16
+      },
+      {
+        "core_index": 25,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 25,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 17
+      },
+      {
+        "core_index": 26,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 26,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 18
+      },
+      {
+        "core_index": 27,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 27,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 19
+      },
+      {
+        "core_index": 28,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 28,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 20
+      },
+      {
+        "core_index": 29,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 29,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 21
+      },
+      {
+        "core_index": 30,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 30,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 22
+      },
+      {
+        "core_index": 31,
+        "efficiency_class": 0,
+        "group": 0,
+        "logical_processor": 31,
+        "role": "physical_primary",
+        "smt_siblings": [],
+        "worker_slot": 23
+      },
+      {
+        "core_index": 0,
+        "efficiency_class": 1,
+        "group": 0,
+        "logical_processor": 1,
+        "role": "smt_overflow",
+        "smt_siblings": [
+          0
+        ],
+        "worker_slot": 24
+      },
+      {
+        "core_index": 4,
+        "efficiency_class": 1,
+        "group": 0,
+        "logical_processor": 5,
+        "role": "smt_overflow",
+        "smt_siblings": [
+          4
+        ],
+        "worker_slot": 25
+      }
+    ],
+    "worker_slot_count": 26
+  },
+  "schema_version": "DQBD_STEP9_FIXED_CAUSAL_MODEL_STORE_RUN_V1",
+  "seed_worker_allocation": {
+    "LONG": 8,
+    "PRIMARY": 9,
+    "SHORT": 9
+  },
+  "seeds": {
+    "LONG": "2021-08-31",
+    "PRIMARY": "2021-02-26",
+    "SHORT": "2020-08-31"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "checks": {
+    "A_fresh_fit_count_is_one": true,
+    "F_calibration_resolution_matches_refits": true,
+    "F_refit_on_every_evidence_expansion": true,
+    "F_refit_only_on_evidence_expansion": true,
+    "M_fresh_fit_count_matches_assessments": true,
+    "all_horizons_have_identical_evaluation_dates": true,
+    "final_holdout_opened": true,
+    "no_nonfinite_fit_values": true,
+    "promotion_allowed": true,
+    "recipe_identity_constant": true,
+    "same_initial_model_artifact_across_arms": true,
+    "same_initial_recipe_across_arms": true,
+    "same_initial_threshold_across_arms": true
+  },
+  "holdout": {
+    "boundary": "2026-07-25",
+    "contract": "PROSPECTIVE_FROM_2026_07_25",
+    "development_session_count": 2394,
+    "final_holdout_opened": false,
+    "historical_pre_boundary_marker_count": 249056,
+    "post_boundary_marker_count": 0,
+    "promotion_allowed": false
+  },
+  "schema_version": "FULL_SPACE_CONTRACT_AUDIT_V1",
+  "status": "PASS"
+}

@@ -1,0 +1,69 @@
+# Top-10 Adaptation Gate Controller V4
+
+Status: **COMPLETE** / **DEVELOPMENT_REUSE_NOT_INDEPENDENT_OOS**
+
+V4 keeps the V3 adaptive learner in shadow mode and uses a causal lambda gate to decide how much of that adaptive state may override each model's static prior.
+
+The gate scores the previous adaptive weights against the newly matured monthly quality snapshot before that snapshot is used for the next adaptive update.
+
+## Development replay
+
+| model_id | prior_class | arm | trade_count | cagr_excess | terminal_wealth_excess_eur |
+| --- | --- | --- | --- | --- | --- |
+| R01_L_H11_D03_N1 | SHORT | ADAPTIVE_V3_REFERENCE | 68 | -2.7190% | -1035.781265083766 |
+| R02_F_H24_D05_N1 | SHORT | ADAPTIVE_V3_REFERENCE | 53 | 6.7034% | 2764.1670751224883 |
+| R03_L_H28_D21_N1 | MID | ADAPTIVE_V3_REFERENCE | 19 | -4.7693% | -1785.2430972393704 |
+| R04_L_H28_D21_N5 | LONG | ADAPTIVE_V3_REFERENCE | 24 | 8.4081% | 3516.369432816122 |
+| R05_L_H28_D21_N4 | LONG | ADAPTIVE_V3_REFERENCE | 23 | 8.4187% | 3521.096925482183 |
+| R06_L_H28_D21_N6 | LONG | ADAPTIVE_V3_REFERENCE | 24 | 8.4438% | 3532.330071390046 |
+| R07_L_H28_D21_N2 | LONG | ADAPTIVE_V3_REFERENCE | 21 | 8.3653% | 3497.208038269484 |
+| R08_L_H28_D21_N3 | LONG | ADAPTIVE_V3_REFERENCE | 22 | 8.3875% | 3507.170990182036 |
+| R09_L_H24_D21_N5 | LONG | ADAPTIVE_V3_REFERENCE | 41 | 6.7033% | 2764.1550179990336 |
+| R10_L_H24_D21_N6 | LONG | ADAPTIVE_V3_REFERENCE | 41 | 6.6950% | 2760.511149238453 |
+| R01_L_H11_D03_N1 | SHORT | GATED_ADAPTIVE_V4 | 67 | -2.2192% | -848.9780980511259 |
+| R02_F_H24_D05_N1 | SHORT | GATED_ADAPTIVE_V4 | 53 | 7.5021% | 3114.082594765634 |
+| R03_L_H28_D21_N1 | MID | GATED_ADAPTIVE_V4 | 19 | -8.4096% | -3050.562969884253 |
+| R04_L_H28_D21_N5 | LONG | GATED_ADAPTIVE_V4 | 24 | 9.0939% | 3824.745416450969 |
+| R05_L_H28_D21_N4 | LONG | GATED_ADAPTIVE_V4 | 23 | 9.0942% | 3824.8570981509256 |
+| R06_L_H28_D21_N6 | LONG | GATED_ADAPTIVE_V4 | 24 | 9.1265% | 3839.451728831955 |
+| R07_L_H28_D21_N2 | LONG | GATED_ADAPTIVE_V4 | 21 | 9.1277% | 3840.031774012932 |
+| R08_L_H28_D21_N3 | LONG | GATED_ADAPTIVE_V4 | 22 | 9.0640% | 3811.231626512148 |
+| R09_L_H24_D21_N5 | LONG | GATED_ADAPTIVE_V4 | 42 | 10.6810% | 4551.178429391221 |
+| R10_L_H24_D21_N6 | LONG | GATED_ADAPTIVE_V4 | 42 | 10.6726% | 4547.301152033229 |
+| R01_L_H11_D03_N1 | SHORT | RAW | 3 | -1.6014% | -615.8689052095433 |
+| R02_F_H24_D05_N1 | SHORT | RAW | 0 | 0.0000% | 0.0 |
+| R03_L_H28_D21_N1 | MID | RAW | 0 | 0.0000% | 0.0 |
+| R04_L_H28_D21_N5 | LONG | RAW | 0 | 0.0000% | 0.0 |
+| R05_L_H28_D21_N4 | LONG | RAW | 0 | 0.0000% | 0.0 |
+| R06_L_H28_D21_N6 | LONG | RAW | 0 | 0.0000% | 0.0 |
+| R07_L_H28_D21_N2 | LONG | RAW | 0 | 0.0000% | 0.0 |
+| R08_L_H28_D21_N3 | LONG | RAW | 0 | 0.0000% | 0.0 |
+| R09_L_H24_D21_N5 | LONG | RAW | 0 | 0.0000% | 0.0 |
+| R10_L_H24_D21_N6 | LONG | RAW | 0 | 0.0000% | 0.0 |
+| R01_L_H11_D03_N1 | SHORT | STATIC_MODEL_PRIOR | 67 | -2.2192% | -848.9780980511259 |
+| R02_F_H24_D05_N1 | SHORT | STATIC_MODEL_PRIOR | 53 | 7.5021% | 3114.082594765634 |
+| R03_L_H28_D21_N1 | MID | STATIC_MODEL_PRIOR | 19 | -8.4096% | -3050.562969884253 |
+| R04_L_H28_D21_N5 | LONG | STATIC_MODEL_PRIOR | 30 | -3.2677% | -1238.9763279914914 |
+| R05_L_H28_D21_N4 | LONG | STATIC_MODEL_PRIOR | 29 | -3.2675% | -1238.894320258827 |
+| R06_L_H28_D21_N6 | LONG | STATIC_MODEL_PRIOR | 30 | -3.2384% | -1228.17750119441 |
+| R07_L_H28_D21_N2 | LONG | STATIC_MODEL_PRIOR | 24 | -3.4686% | -1312.8985772218257 |
+| R08_L_H28_D21_N3 | LONG | STATIC_MODEL_PRIOR | 28 | -3.2946% | -1248.8994870500574 |
+| R09_L_H24_D21_N5 | LONG | STATIC_MODEL_PRIOR | 42 | 10.6810% | 4551.178429391221 |
+| R10_L_H24_D21_N6 | LONG | STATIC_MODEL_PRIOR | 42 | 10.6726% | 4547.301152033229 |
+
+## Frozen V3 reproduction and V4 delta
+
+| model_id | v3_frozen_cagr_excess | v4_gated_cagr_excess | v4_minus_v3_cagr_excess |
+| --- | --- | --- | --- |
+| R01_L_H11_D03_N1 | -2.7190% | -2.2192% | 0.4998% |
+| R02_F_H24_D05_N1 | 6.7034% | 7.5021% | 0.7988% |
+| R03_L_H28_D21_N1 | -4.7693% | -8.4096% | -3.6403% |
+| R04_L_H28_D21_N5 | 8.4081% | 9.0939% | 0.6858% |
+| R05_L_H28_D21_N4 | 8.4187% | 9.0942% | 0.6755% |
+| R06_L_H28_D21_N6 | 8.4438% | 9.1265% | 0.6827% |
+| R07_L_H28_D21_N2 | 8.3653% | 9.1277% | 0.7625% |
+| R08_L_H28_D21_N3 | 8.3875% | 9.0640% | 0.6765% |
+| R09_L_H24_D21_N5 | 6.7033% | 10.6810% | 3.9777% |
+| R10_L_H24_D21_N6 | 6.6950% | 10.6726% | 3.9777% |
+
+No model was trained, no prediction was regenerated, no threshold or gate grid was searched, and the Final Holdout remained closed. Selection from this development replay is prohibited.

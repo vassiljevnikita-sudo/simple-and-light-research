@@ -1,0 +1,24 @@
+{
+  "status": "LIVE_PREVIEW_COMPLETE",
+  "validation_status": "PSEUDO_OOS_DEVELOPMENT_WITH_REALIZED_DAILY_OUTCOMES",
+  "requested_start": "2016-01-01",
+  "requested_end": "2026-07-24",
+  "observed_start": "2016-06-24",
+  "observed_end": "2026-06-10",
+  "training_years": 2,
+  "decision_count": 2504,
+  "policy_hash": "77d4a031b55e3d312ecd448e9b14787de55b06b20056dde620c3b66678c1c4b7",
+  "ablation_arms": {
+    "A_STATIC_BEST_DEV": 2504,
+    "B_HARD_CHAMPION_3M": 2504,
+    "C_HARD_CHAMPION_6M": 2504,
+    "D_EQUAL_WEIGHT": 2504,
+    "E_DISCOUNTED_SOFTMAX": 2504,
+    "F_SUPERIOR_SET_EQUAL": 2504,
+    "G_SUPERIOR_SET_DMA": 2504,
+    "H_REGIME_SHRINKAGE": 2504,
+    "I_CHANGEPOINT": 2504,
+    "J_OPPORTUNITY_TIME_ACTIVITY": 2504,
+    "K_UNCERTAINTY_LCB": 2504
+  }
+}

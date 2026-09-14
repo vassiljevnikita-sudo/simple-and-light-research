@@ -1,0 +1,32 @@
+{
+  "a_frozen_calibration_identity": {
+    "calibration_fingerprint": "879ee52b5d00a471eda3af8ed1fccc0176956f2a36ffa0f483e3365e98b8fac5",
+    "calibration_observations": 252,
+    "generation_id": "d6a1f7bbcc108eb80cf23f76",
+    "model_artifact_id": "b9800076bf7f7979c4ea3e8c3f3893ff6a220e4841f151e67128426015016333",
+    "resolved_threshold": 0.018312770044789324,
+    "resolved_top_fraction": 0.01
+  },
+  "assessment_count": 41,
+  "checks": {
+    "a_calibration_resolved_once": true,
+    "a_schedule_has_one_frozen_generation": true,
+    "b_schedule_matches_assessment_count": true,
+    "b_uses_one_model_artifact": true,
+    "c_fresh_model_each_assessment": true,
+    "c_schedule_matches_assessment_count": true,
+    "initial_threshold_matches_all_arms": true,
+    "same_exact_recipe_all_months_and_arms": true,
+    "same_initial_model_artifact_all_arms": true
+  },
+  "initial_model_artifact_ids": {
+    "A_FROZEN_MODEL_FROZEN_CALIBRATION": "b9800076bf7f7979c4ea3e8c3f3893ff6a220e4841f151e67128426015016333",
+    "B_FROZEN_MODEL_ROLLING_RECALIBRATION": "b9800076bf7f7979c4ea3e8c3f3893ff6a220e4841f151e67128426015016333",
+    "C_MONTHLY_REFIT_FROZEN_RECIPE": "b9800076bf7f7979c4ea3e8c3f3893ff6a220e4841f151e67128426015016333"
+  },
+  "initial_thresholds": {
+    "A_FROZEN_MODEL_FROZEN_CALIBRATION": 0.018312770044789324,
+    "B_FROZEN_MODEL_ROLLING_RECALIBRATION": 0.018312770044789324,
+    "C_MONTHLY_REFIT_FROZEN_RECIPE": 0.018312770044789324
+  }
+}
