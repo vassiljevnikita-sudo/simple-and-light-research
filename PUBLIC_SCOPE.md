@@ -1,16 +1,20 @@
 # Public research scope
 
-This repository is a **sanitized, history-free public snapshot** of the Dynamic-QBD /
+This repository is a **curated public snapshot** of the Dynamic-QBD /
 Opportunity-Portfolio research program. The private repository `simple-and-light`
-remains the internal source of truth. This mirror is a curated export of it.
+remains the internal source of truth. The published file tree is sanitized and the
+private source history is not imported. Public-mirror commit-metadata sanitation is
+a separate publication invariant tracked in `QA_TOOL_FAILURE_LOG.md` / `TOBECONTINUED.md`.
 
 Source snapshot: `c196dba496203e803917fd4fff9a03d4df9dc3a2`
 (branch `agent/dynamic-qbd-causal-model-store-v1`).
 
-> **Status: research scope transferred.** The sanitation contract below is satisfied
-> and every document the mirrored root docs link to is now present. What remains
-> outside this repository is excluded by contract, not pending. See
-> [Transfer status](#transfer-status).
+> **Status: research scope transferred; commit-metadata sanitation still open.**
+> Every document in the documented public research scope is present, and the file
+> tree passes the defined sanitation probes. The remaining publication blocker is
+> `P9`: early public-mirror commits expose a private author/committer address. The
+> mirror must not be declared fully sanitized until the reachable public history is
+> rebuilt/replaced and the metadata probe passes.
 
 ## Why the history is not mirrored
 
@@ -115,16 +119,14 @@ Two things about running it:
   of the published surface. `git log --all --format='%an <%ae> | %cn <%ce>' | sort -u`
   must not contain a private address.
 
-> **Known and accepted.** The mirror's early commits are authored under the
-> maintainer's private personal email address — the same address whose presence in
-> commit metadata is the stated reason this repository does not import the private
-> history. The published tree is clean; that early commit metadata is not. The
-> maintainer has decided to leave it as it stands rather than force-push over
-> published history, so **do not rewrite, rebase or force-push those commits** and do
-> not re-raise it. Tracked as incident `P9` in
-> [QA_TOOL_FAILURE_LOG.md](QA_TOOL_FAILURE_LOG.md). New commits use a GitHub
-> `users.noreply.github.com` address; the probe above still applies so a new leak
-> would be caught.
+> **Known publication blocker.** Early public-mirror commits contain the
+> maintainer's private personal email address in author/committer metadata. The
+> published file tree is clean; the reachable public commit graph is not. The earlier
+> decision to accept this was superseded by the maintainer on 2026-09-14. Tracked as
+> incident `P9` in [QA_TOOL_FAILURE_LOG.md](QA_TOOL_FAILURE_LOG.md). Required
+> closure: rebuild or recreate the public history with non-private commit metadata,
+> remove/update every public ref that still reaches the affected commits, and rerun
+> the metadata probe before marking sanitation complete.
 
 ## Transfer status
 
