@@ -183,10 +183,11 @@ constrained:
 2. **Hosted read path.** A hosted session scoped to this public repository cannot
    read the private repository at all, so it cannot transfer files even when the
    write path would accept them. Incident `P7` records this.
-3. **Hosted push path.** A hosted session may also have no write scope on this
-   repository at all — both `git push` and the GitHub API return `403` while reads
-   succeed. This is an authorization gap rather than a content filter, so it cannot
-   be worked around by changing what is written. Incident `P10` records this.
+3. **Hosted push path.** A hosted session's write scope on this repository can be
+   absent for a time — both `git push` and the GitHub API return `403` while reads
+   keep succeeding — and then return without any change to the commit. This is an
+   authorization state, not a content filter, so it is never worked around by
+   changing what is written. Incident `P10` records this.
 
 The supported path for the remaining files is therefore **local and manual**:
 
