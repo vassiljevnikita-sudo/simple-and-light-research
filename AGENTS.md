@@ -1,6 +1,18 @@
 # AGENTS.md
 
-This is the canonical repository-specific instruction file for coding and research agents working in `simple-and-light`.
+This is the canonical repository-specific instruction file for coding and research agents working in the `simple-and-light` research program.
+
+> **You are in the public mirror.** `simple-and-light-research` is a sanitized,
+> history-free, **partial** export of the private `simple-and-light` repository,
+> which remains the internal source of truth. The instructions below are the full
+> program rules and are stated in terms of the private source tree. Several
+> documents they require are not present in this mirror yet.
+>
+> Before acting here, read [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md): it defines what may
+> ever be published to this repository, and lists exactly which referenced paths
+> have been transferred and which are still pending. An absent document is pending,
+> **not** evidence that the contract it defines does not exist — do not reconstruct,
+> guess at, or silently replace a contract you cannot read.
 
 The repository contains multiple historical research tracks. Do not assume the oldest root model documentation describes the active task. Resolve the current branch, read the current tracker, and identify the research track before changing code.
 
@@ -22,6 +34,12 @@ Before making changes:
 7. Inspect the exact existing result artifacts relevant to the proposed experiment before proposing or implementing another research path.
 8. Inspect the current implementation files, not only documentation. Documentation can lag code; exact committed result artifacts and contracts are evidence for completed runs.
 9. Only then plan or edit.
+
+In the public mirror, steps 4-7 can only be completed for documents that have
+actually been transferred. When a required document is listed as pending in
+[PUBLIC_SCOPE.md](PUBLIC_SCOPE.md), say so explicitly and treat the affected work as
+blocked on obtaining it from the private repository. Proceeding without a mandatory
+contract, or inferring its content, is a failure mode — not a shortcut.
 
 If the task is only a question, investigation or result review, treat it as read-only unless the user explicitly asks for changes.
 
