@@ -1,0 +1,8 @@
+# QA Tool Failure Log — Public Research Mirror
+
+This ledger records failed tool invocations and sanitation incidents for the public research mirror only. It intentionally does not copy the private repository's historical operational ledger.
+
+| # | Context | Observed error | Classification | Correction / verification |
+|---|---|---|---|---|
+| P1 | Root batch sanitation script before any research-tree write | JavaScript regular-expression syntax error; no research-tree write occurred | Operational/tool invocation failure | Replace inline regex modifiers with JavaScript flags and rerun the same sanitation batch |
+| P2 | Attempt to copy the private repository's full historical QA ledger into the public mirror | Tool safety checks blocked the write; no historical QA content was published | Operational/tool invocation failure | Do not copy the private QA ledger. Maintain this new public-only sanitation ledger instead |
