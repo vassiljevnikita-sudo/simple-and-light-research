@@ -2,10 +2,13 @@
 
 This is the canonical repository-specific instruction file for coding and research agents working in the `simple-and-light` research program.
 
-> **You are in the public mirror.** `simple-and-light-research` is a sanitized,
-> history-free export of the private `simple-and-light` repository, which remains
-> the internal source of truth. Every document the start sequence below requires is
-> present here.
+> **You are in the public mirror.** `simple-and-light-research` is the curated
+> public export of the private `simple-and-light` repository, which remains the
+> internal source of truth. The published file tree is sanitized and the private
+> source history is not imported. Public-mirror publication blockers, including
+> commit-metadata sanitation, are tracked in `TOBECONTINUED.md` and
+> `QA_TOOL_FAILURE_LOG.md`; do not call the mirror fully sanitized while such an
+> item is open. Every document the start sequence below requires is present here.
 >
 > Before acting, read [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md): it defines what may ever be
 > published to this repository. Material it excludes — large artifact stores, private
