@@ -19,9 +19,7 @@ This README is the human-facing map. Coding agents should start with [AGENTS.md]
 Naming contract: [research/DYNAMIC_QBD_NAMING.md](research/DYNAMIC_QBD_NAMING.md). **Full Run** is reserved for the entire 2016-2026 dataset. No Full Run has been executed under the current closed-holdout contract.
 
 
-The active branch is currently:
-
-`agent/dynamic-qbd-causal-model-store-v1`
+The public mirror is published from `main`. Development branch names from the private source repository are provenance only and are not public-mirror branches. Resolve the current private Development head in the private repository before doing source-development work.
 
 The current Dynamic-QBD program asks how a large family of causal stock-selection models should be trained, refreshed, stored and selected through time without future leakage or repeated hindsight optimization.
 
