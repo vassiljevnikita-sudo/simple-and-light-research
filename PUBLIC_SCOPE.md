@@ -115,14 +115,16 @@ Two things about running it:
   of the published surface. `git log --all --format='%an <%ae> | %cn <%ce>' | sort -u`
   must not contain a private address.
 
-> **Open breach.** The mirror's existing commits are authored and committed under
-> the maintainer's private personal email address — the same address whose presence
-> in commit metadata is the stated reason this repository does not import the private
-> history. The published tree is clean; the commit metadata is not. This is tracked
-> as incident `P9` in
-> [QA_TOOL_FAILURE_LOG.md](QA_TOOL_FAILURE_LOG.md) and needs a maintainer decision,
-> because correcting already-pushed commits means rewriting and force-pushing public
-> history. Future commits should use a GitHub `users.noreply.github.com` address.
+> **Known and accepted.** The mirror's early commits are authored under the
+> maintainer's private personal email address — the same address whose presence in
+> commit metadata is the stated reason this repository does not import the private
+> history. The published tree is clean; that early commit metadata is not. The
+> maintainer has decided to leave it as it stands rather than force-push over
+> published history, so **do not rewrite, rebase or force-push those commits** and do
+> not re-raise it. Tracked as incident `P9` in
+> [QA_TOOL_FAILURE_LOG.md](QA_TOOL_FAILURE_LOG.md). New commits use a GitHub
+> `users.noreply.github.com` address; the probe above still applies so a new leak
+> would be caught.
 
 ## Transfer status
 

@@ -31,8 +31,9 @@ in [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md) and must be read in the private repository
       files under `stock_predictor/` transferred.
 - [x] `CURRENT_MODEL.md` sizing and named-broker details reviewed and approved for
       publication as research configuration parameters (see `QA_TOOL_FAILURE_LOG.md` P8).
-- [ ] Decide whether the mirror's own commit metadata should be corrected
-      (see `QA_TOOL_FAILURE_LOG.md` P9) — requires rewriting published history.
+- [x] Mirror commit metadata reviewed: early commits carry a private address. Decided
+      to leave published history as it stands — no rewrite, no force-push
+      (see `QA_TOOL_FAILURE_LOG.md` P9).
 
 The documented research scope is now fully mirrored. Everything still absent is
 excluded by contract, not pending; `PUBLIC_SCOPE.md` lists it. Large artifact
