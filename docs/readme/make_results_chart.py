@@ -148,7 +148,7 @@ def draw(mode: str) -> Path:
         loc="left", fontsize=10.5, color=theme["ink"], y=1.03, pad=0,
     )
 
-    # Right panel: all FIXED families, median change in yearly return above benchmark.
+    # Right panel: all FIXED families (fixed holding period), median change in yearly return above benchmark.
     labels = [name for name, _, _ in surface]
     values = [value for _, value, _ in surface]
     notes = [note for _, _, note in surface]
@@ -165,7 +165,7 @@ def draw(mode: str) -> Path:
     right.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, _: f"{x:+.0f}" if x else "0"))
     style_axis(right, theme)
     right.set_title(
-        f"All {family_count:,} model families, 2016-2025 data\n"
+        f"{family_count:,} fixed-holding families, 2016-2025\n"
         "median change in yearly return above benchmark",
         loc="left", fontsize=10.5, color=theme["ink"], y=1.03, pad=0,
     )
