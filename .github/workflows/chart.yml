@@ -1,0 +1,29 @@
+# Artifact check for the public research copy. It redraws the README chart
+# from the committed summary.json files and checks the README's links.
+# It does not rerun any experiment: market data and models are not public.
+name: Chart and link check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  chart:
+    name: Redraw chart and check README links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install matplotlib
+        run: pip install "matplotlib==3.11.2"
+      - name: Redraw chart, compare with committed PNGs, check README links
+        run: python docs/readme/verify_readme_artifacts.py
+      - name: Show any change to tracked files
+        if: always()
+        run: git status --short
