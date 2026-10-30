@@ -11,11 +11,13 @@ This is the canonical repository-specific instruction file for coding and resear
 > item is open. Every document the start sequence below requires is present here.
 >
 > Before acting, read [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md): it defines what may ever be
-> published to this repository. Material it excludes — large artifact stores, private
-> runtime incident history, operational and business automation — is absent by
-> contract, not by oversight. An absent document is **not** evidence that the
-> contract it defines does not exist; do not reconstruct, guess at, or silently
-> replace one you cannot read, and never publish excluded material here.
+> published to this repository. Everything it does not include is absent by
+> contract, not by oversight: large artifact stores, private runtime incident
+> history, operational configuration, credentials, third-party and business data.
+> **Never import private material into this repository.** Only files that fall
+> under the inclusion contract and pass its review may be added. An absent document
+> is **not** evidence that the contract it defines does not exist; do not
+> reconstruct, guess at, or silently replace one you cannot read.
 
 The repository contains multiple historical research tracks. Do not assume the oldest root model documentation describes the active task. Resolve the current branch, read the current tracker, and identify the research track before changing code.
 
@@ -41,10 +43,10 @@ Before making changes:
 In the public mirror, steps 4-7 are all satisfiable: the research documents, the
 architecture docs and the compact run artifacts they refer to are present. What is
 not present is listed in [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md) under
-`Deliberately not transferred` — chiefly the bulk artifact stores, so a step-7
-inspection of a *large* run's raw state must happen in the private repository.
-Proceeding without a mandatory contract, or inferring its content, is a failure
-mode — not a shortcut.
+`Deliberately not transferred`. That is chiefly the bulk artifact stores, so a
+step-7 inspection of a *large* run's raw state must happen in the private
+repository. Proceeding without a mandatory contract, or inferring its content, is a
+failure mode, not a shortcut.
 
 If the task is only a question, investigation or result review, treat it as read-only unless the user explicitly asks for changes.
 

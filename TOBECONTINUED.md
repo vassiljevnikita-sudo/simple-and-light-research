@@ -39,8 +39,9 @@ in [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md) and must be read in the private repository
 The documented research **content scope** is fully mirrored. Public release
 sanitation is not complete until the open commit-metadata item above is closed.
 Everything still absent from the file tree is excluded by contract, not pending;
-`PUBLIC_SCOPE.md` lists it. Large artifact stores, private runtime incident history
-and all business/customer automation remain out of scope by design.
+`PUBLIC_SCOPE.md` defines the boundary. Large artifact stores, private runtime
+incident history and anything outside the research program remain out of scope by
+design.
 
 ## Authority map
 

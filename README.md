@@ -17,7 +17,7 @@ The chart is drawn by [docs/readme/make_results_chart.py](docs/readme/make_resul
 
 ## My role
 
-Nikita Vassiljev ([GitHub](https://github.com/vassiljevnikita-sudo)), sole human author: research design, experiments and documentation. I built the code with AI coding agents (OpenAI Codex, Claude).
+I am Nikita Vassiljev ([GitHub](https://github.com/vassiljevnikita-sudo)), the sole human author: I did the research design, ran the experiments and wrote the documentation. I built the code with AI coding agents (OpenAI Codex, Claude).
 
 ## Tech stack
 
@@ -69,12 +69,12 @@ Coding agents start with [AGENTS.md](AGENTS.md). The research map below is the o
 
 ## Research map
 
-> Public research snapshot of the Dynamic-QBD / Opportunity-Portfolio program. This repository starts from source snapshot `c196dba496203e803917fd4fff9a03d4df9dc3a2` and intentionally excludes private operational material, credentials, customer data, local machine state, and large licensed/local datasets.
+> Public research snapshot of the Dynamic-QBD / Opportunity-Portfolio program. This repository starts from source snapshot `c196dba496203e803917fd4fff9a03d4df9dc3a2` and contains only the research documents, code and compact results listed in [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md). Everything else, including operational configuration, credentials, third-party and business data, local machine state and large licensed/local datasets, is out of scope.
 
 > **Scope.** The documented research scope is mirrored here: research documents,
 > architecture docs, the Dynamic-QBD implementation and self-tests, and compact run
-> evidence. Large artifact stores, private runtime incident history and all
-> business/customer automation are excluded by contract.
+> evidence. Large artifact stores, private runtime incident history and anything
+> outside the research program are excluded by contract.
 > [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md) states what is included, what is excluded and why.
 
 `simple-and-light` is a research repository for chronological stock-selection, portfolio and execution experiments. It contains several generations of work. The protected V4/N25, V4.5, V5 and broker contracts remain in the repository, but the active research program on the current QBD branch is the **Opportunity-Portfolio / Dynamic-QBD system**.
@@ -191,12 +191,12 @@ Detailed plan: [research/CAUSAL_MODEL_STORE_ORCHESTRATOR_PLAN.md](research/CAUSA
 
 The most relevant areas for the current research are:
 
-- `stock_predictor/backtests/opportunity_portfolio_research/` — QbD surfaces, Dynamic-QBD factory/replay/evidence/gates and research experiments.
-- `research/` — research architecture, scientific interpretation and current handoffs.
-- `docs/architecture/` — implementation/runtime architecture documents.
-- `artifacts/` — compact committed results and audit evidence. Large model/prediction/NAV/checkpoint stores usually remain local.
-- `stock_predictor/research_model_registry.json` — protected V4/N25/V4.5/V5 model identity. It is **not** the Dynamic-QBD project-status tracker.
-- `TOBECONTINUED.md` — mandatory current work tracker.
+- `stock_predictor/backtests/opportunity_portfolio_research/`: QbD surfaces, Dynamic-QBD factory/replay/evidence/gates and research experiments.
+- `research/`: research architecture, scientific interpretation and current handoffs.
+- `docs/architecture/`: implementation/runtime architecture documents.
+- `artifacts/`: compact committed results and audit evidence. Large model/prediction/NAV/checkpoint stores usually remain local.
+- `stock_predictor/research_model_registry.json`: protected V4/N25/V4.5/V5 model identity. It is **not** the Dynamic-QBD project-status tracker.
+- `TOBECONTINUED.md`: mandatory current work tracker.
 
 For the Opportunity-Portfolio package itself, see [stock_predictor/backtests/opportunity_portfolio_research/README.md](stock_predictor/backtests/opportunity_portfolio_research/README.md).
 
@@ -204,14 +204,14 @@ For the Opportunity-Portfolio package itself, see [stock_predictor/backtests/opp
 
 Use these in order for current Dynamic-QBD work:
 
-1. [TOBECONTINUED.md](TOBECONTINUED.md) — what is done, open and planned.
-2. [research/DYNAMIC_QBD_CURRENT_STATE.md](research/DYNAMIC_QBD_CURRENT_STATE.md) — current scientific/technical state.
-3. [research/DYNAMIC_QBD_RESULTS_INDEX.md](research/DYNAMIC_QBD_RESULTS_INDEX.md) — experiments already run and their consequences.
-4. [research/DYNAMIC_QBD_DATA_AND_RUNTIME.md](research/DYNAMIC_QBD_DATA_AND_RUNTIME.md) — data limits, scale and current machine/runtime contract.
-5. [QA_TOOL_FAILURE_LOG.md](QA_TOOL_FAILURE_LOG.md) — durable operational QA incident ledger (historical filename) for tool failures and material runtime/resume/provenance failures, including reusable-state decisions.
-6. [research/DYNAMIC_QBD_EXECUTION_MINIMUM_BASELINE.md](research/DYNAMIC_QBD_EXECUTION_MINIMUM_BASELINE.md) — v40.0.4.3 minimum execution baseline, `failed because X` history and failure-derived non-regression requirements.
-7. [research/CAUSAL_MODEL_STORE_ORCHESTRATOR_PLAN.md](research/CAUSAL_MODEL_STORE_ORCHESTRATOR_PLAN.md) — current causal scientific architecture plan.
-8. Exact `artifacts/<run>/summary.json` / `REPORT.md` — authoritative evidence for a specific completed run.
+1. [TOBECONTINUED.md](TOBECONTINUED.md): what is done, open and planned.
+2. [research/DYNAMIC_QBD_CURRENT_STATE.md](research/DYNAMIC_QBD_CURRENT_STATE.md): current scientific/technical state.
+3. [research/DYNAMIC_QBD_RESULTS_INDEX.md](research/DYNAMIC_QBD_RESULTS_INDEX.md): experiments already run and their consequences.
+4. [research/DYNAMIC_QBD_DATA_AND_RUNTIME.md](research/DYNAMIC_QBD_DATA_AND_RUNTIME.md): data limits, scale and current machine/runtime contract.
+5. [QA_TOOL_FAILURE_LOG.md](QA_TOOL_FAILURE_LOG.md): durable operational QA incident ledger (historical filename) for tool failures and material runtime/resume/provenance failures, including reusable-state decisions.
+6. [research/DYNAMIC_QBD_EXECUTION_MINIMUM_BASELINE.md](research/DYNAMIC_QBD_EXECUTION_MINIMUM_BASELINE.md): v40.0.4.3 minimum execution baseline, `failed because X` history and failure-derived non-regression requirements.
+7. [research/CAUSAL_MODEL_STORE_ORCHESTRATOR_PLAN.md](research/CAUSAL_MODEL_STORE_ORCHESTRATOR_PLAN.md): current causal scientific architecture plan.
+8. Exact `artifacts/<run>/summary.json` / `REPORT.md`: authoritative evidence for a specific completed run.
 
 [DOCUMENTATION_AUTHORITY.md](DOCUMENTATION_AUTHORITY.md) defines how these relate to the protected model registry and historical documents.
 
