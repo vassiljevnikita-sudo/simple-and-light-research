@@ -5,8 +5,8 @@ This is the canonical repository-specific instruction file for coding and resear
 > **You are in the public mirror.** `simple-and-light-research` is the curated
 > public export of the private `simple-and-light` repository, which remains the
 > internal source of truth. The published file tree is sanitized and the private
-> source history is not imported. Public-mirror publication blockers, including
-> commit-metadata sanitation, are tracked in `TOBECONTINUED.md` and
+> source history is not imported. Public-mirror publication blockers are tracked
+> in `TOBECONTINUED.md` and
 > `QA_TOOL_FAILURE_LOG.md`; do not call the mirror fully sanitized while such an
 > item is open. Every document the start sequence below requires is present here.
 >

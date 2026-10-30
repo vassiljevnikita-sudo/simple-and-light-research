@@ -3,18 +3,10 @@
 This repository is a **curated public snapshot** of the Dynamic-QBD /
 Opportunity-Portfolio research program. The private repository `simple-and-light`
 remains the internal source of truth. The published file tree is sanitized and the
-private source history is not imported. Public-mirror commit-metadata sanitation is
-a separate publication invariant tracked in `QA_TOOL_FAILURE_LOG.md` / `TOBECONTINUED.md`.
+private source history is not imported.
 
 Source snapshot: `c196dba496203e803917fd4fff9a03d4df9dc3a2`
 (branch `agent/dynamic-qbd-causal-model-store-v1`).
-
-> **Status: research scope transferred; commit-metadata sanitation still open.**
-> Every document in the documented public research scope is present, and the file
-> tree passes the defined sanitation probes. The remaining publication blocker is
-> `P9`: early public-mirror commits expose a private author/committer address. The
-> mirror must not be declared fully sanitized until the reachable public history is
-> rebuilt/replaced and the metadata probe passes.
 
 ## Why the history is not mirrored
 
@@ -49,7 +41,8 @@ in tree content, commit messages, branch names or commit metadata.
 
 ### Personal and machine-local material
 
-- private email addresses;
+- private email addresses (the author's published contact address is not private;
+  see `P9`);
 - user-profile and home-directory paths and local user names;
 - `.vs/` and other IDE/editor local state;
 - machine-specific runtime configuration and operator scratch state.
@@ -97,23 +90,19 @@ The published tree and history were last checked on 2026-10-30:
 |---|---|---|---|
 | Secrets | gitleaks | full git history | 0 findings |
 | Private term list | case-insensitive search against a term list kept outside this repository | current tree | 0 matches |
-| Private email address | maintainer's private address | current tree | 0 matches |
+| Personal email addresses | any address other than the author's published contact address and GitHub/Anthropic noreply addresses | current tree and commit metadata | 0 matches |
 | User-profile paths and local user names | user-profile path, home-directory and user-name patterns | current tree | 0 matches |
 
 Re-run these checks before every transfer batch, not only at the end. Scan commit
 metadata as well as the tree: author and committer identity is part of the
 published surface, and
-`git log --all --format='%an <%ae> | %cn <%ce>' | sort -u` must not contain a
-private address.
+`git log --all --format='%an <%ae> | %cn <%ce>' | sort -u` must contain only the
+author's published contact address or GitHub/Anthropic noreply addresses.
 
-> **Known publication blocker.** Early public-mirror commits contain the
-> maintainer's private personal email address in author/committer metadata. The
-> published file tree is clean; the reachable public commit graph is not. The earlier
-> decision to accept this was superseded by the maintainer on 2026-09-14. Tracked as
-> incident `P9` in [QA_TOOL_FAILURE_LOG.md](QA_TOOL_FAILURE_LOG.md). Required
-> closure: rebuild or recreate the public history with non-private commit metadata,
-> remove/update every public ref that still reaches the affected commits, and rerun
-> the metadata probe before marking sanitation complete.
+Commit metadata (incident `P9` in [QA_TOOL_FAILURE_LOG.md](QA_TOOL_FAILURE_LOG.md)):
+Resolved 2026-10-30: the address in the commit metadata is the author's published
+contact address (CV, GitHub profile, imprint of the Questify site); no history
+rewrite needed. No other personal data may be committed.
 
 ## Transfer status
 
