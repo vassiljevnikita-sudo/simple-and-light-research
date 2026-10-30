@@ -39,7 +39,7 @@ THEMES = {
 
 PANELS = (
     ("leader-sample.json", "Sample 2017-2021\nrule development"),
-    ("leader-oos.json", "OOS 2022-2025\nalso used to choose the rule, not independent"),
+    ("leader-oos.json", "Validation 2022-2025\nalso used to choose the rule, not independent"),
 )
 
 

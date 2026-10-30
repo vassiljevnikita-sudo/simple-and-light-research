@@ -6,6 +6,8 @@ The documents linked under [Authority map](#authority-map) are the authoritative
 sources for this program. Those not yet transferred to the public mirror are listed
 in [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md) and must be read in the private repository.
 
+> Status 2026-10-30: the research was frozen on 2026-10-02 with the profitability question still open. The items below record the research state at that date. The Trading 212 paper-trading demo that has run since 2026-10-05 is described in the [README](README.md); its code is private.
+
 ## Current focus
 
 - [x] Canonical naming contract: `research/DYNAMIC_QBD_NAMING.md`.
