@@ -20,11 +20,11 @@ The chart is drawn by [docs/readme/make_leader5_chart.py](docs/readme/make_leade
 
 ## My role
 
-I am Nikita Vassiljev ([GitHub](https://github.com/vassiljevnikita-sudo)), the sole human author. I set the goals, designed the research and chose the rules; I built the code and documentation with AI coding agents (OpenAI Codex, Claude).
+I am Nikita Vassiljev ([GitHub](https://github.com/vassiljevnikita-sudo)), the sole human author. I set the goals, designed the research and chose the rules; I built the code and documentation with AI coding agents (OpenAI Codex, Claude). I mostly bullied GPT-5.6 Luna into writing this code, so that's something.
 
 ## Tech stack
 
-Python 3 with pandas, NumPy, scikit-learn (Ridge regression and histogram gradient boosting) and PyArrow/Parquet. Large runs use process pools with a fixed memory ceiling. The demo runs in a separate JavaScript worker against the Trading 212 demo API; that code is not in this repository. The charts use matplotlib.
+Python 3 with pandas, NumPy, scikit-learn (Ridge regression and histogram gradient boosting) and PyArrow/Parquet. Large runs use process pools with a fixed memory ceiling. The demo runs in a separate JavaScript worker against the Trading 212 demo API; that code is not in this repository. The charts use matplotlib. The research got hardware-limited, that is why the repo has dual GPU parallelism, SMT-based CPU-Thread load management and a whole system RAM OOM-guard with load balancing build in. Both GPUs and all available CPU Threads get assigned workers and as many jobs as the system RAM can handle. The RAM guard keeps total RAM Load at arround 90% spawing Workers if RAM usage falls below and killig them if it rises above that threshhold. 
 
 ## Limitations
 
