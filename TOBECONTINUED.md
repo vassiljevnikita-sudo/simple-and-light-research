@@ -31,13 +31,11 @@ in [PUBLIC_SCOPE.md](PUBLIC_SCOPE.md) and must be read in the private repository
       files under `stock_predictor/` transferred.
 - [x] `CURRENT_MODEL.md` sizing and named-broker details reviewed and approved for
       publication as research configuration parameters (see `QA_TOOL_FAILURE_LOG.md` P8).
-- [ ] Finalize public-mirror commit-metadata sanitation: early mirror commits still
-      carry a private address. Rebuild/recreate the public history with non-private
-      metadata, ensure every public ref no longer reaches the affected commits, then
-      rerun the metadata probe and resolve `QA_TOOL_FAILURE_LOG.md` P9.
+- [x] Commit metadata checked: it contains only the author's published contact
+      address and noreply addresses. `QA_TOOL_FAILURE_LOG.md` P9 resolved 2026-10-30;
+      no history rewrite needed.
 
-The documented research **content scope** is fully mirrored. Public release
-sanitation is not complete until the open commit-metadata item above is closed.
+The documented research **content scope** is fully mirrored.
 Everything still absent from the file tree is excluded by contract, not pending;
 `PUBLIC_SCOPE.md` defines the boundary. Large artifact stores, private runtime
 incident history and anything outside the research program remain out of scope by

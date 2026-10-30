@@ -17,7 +17,7 @@ The chart is drawn by [docs/readme/make_results_chart.py](docs/readme/make_resul
 
 ## My role
 
-I am Nikita Vassiljev ([GitHub](https://github.com/vassiljevnikita-sudo)), the sole human author: I did the research design, ran the experiments and wrote the documentation. I built the code with AI coding agents (OpenAI Codex, Claude).
+I am Nikita Vassiljev ([GitHub](https://github.com/vassiljevnikita-sudo)), the sole human author. I designed the research and ran the experiments; I built the code and documentation with AI coding agents (OpenAI Codex, Claude).
 
 ## Tech stack
 
