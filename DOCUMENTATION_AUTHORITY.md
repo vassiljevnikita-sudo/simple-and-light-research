@@ -115,7 +115,7 @@ Extending the machine-readable manifest is an open tracked task, not something t
 
 ## 8. Human project overview
 
-[README.md](README.md) is the human-facing repository map.
+[README.md](README.md) is the human-facing project overview; [docs/RESEARCH_MAP.md](docs/RESEARCH_MAP.md) is the technical map of the research program.
 
 It should explain:
 
