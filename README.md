@@ -1,6 +1,8 @@
 # simple-and-light-research
 
-Simple & Light picks stocks with a rule chosen after a Quality by Design study and paper-trades it on Trading 212. I froze the research on 2 October 2026; it had not shown that a learned model can choose stocks that reliably beat the world index. Since 5 October 2026 a Trading 212 demo account with virtual money trades a selector every day, since 12 October the fixed rule Leader5.
+Simple & Light picks stocks with a rule chosen after a Quality by Design study and paper-trades it on Trading 212.
+
+I froze the research on 2 October 2026; it had not shown that a learned model can choose stocks that reliably beat the world index. Since 5 October 2026 a Trading 212 demo account with virtual money trades a selector every day, since 12 October the fixed rule Leader5.
 
 This repository is the public copy of the research: documents, compact results and aggregate numbers. The trading code, the broker connection and the market data stay private.
 
@@ -16,6 +18,21 @@ The chart is drawn by [docs/readme/make_leader5_chart.py](docs/readme/make_leade
 - Demo account, Leader5 curves and every trade: [simple-light-qbd.expo.app/graphen](https://simple-light-qbd.expo.app/graphen)
 - Leader5 numbers: [summary.json](artifacts/leader5-selector-development-20261011/summary.json)
 - Rebuild the charts from the committed results: `pip install matplotlib`, then `python docs/readme/verify_readme_artifacts.py` from the repository root.
+
+## My role
+
+I am Nikita Vassiljev ([GitHub](https://github.com/vassiljevnikita-sudo)), the sole human author. I set the goals, designed the research and chose the rules; I built the code and documentation with AI coding agents (OpenAI Codex, Claude). I mostly bullied GPT-5.6 Luna into writing this code, so that's something.
+
+## Tech stack
+
+Research: Python 3 with pandas, NumPy, scikit-learn (ridge regression, histogram gradient boosting), LightGBM on OpenCL, Polars and PyArrow/Parquet; charts with matplotlib. Demo: a Node.js worker against the Trading 212 demo API, Postgres, Kronos-small in Python on the desktop GPU, Supabase for the display, an Expo web app and an Android APK. The demo code is not in this repository.
+
+## Limitations
+
+- Leader5 is not proven. 2022-2025 was part of the selection criterion, so it is not an independent holdout, and the 2026 figures cover January to July 2026, before the rule was fixed in October. Only the demo account is fresh evidence, and a few weeks of it say little.
+- Backtests are price-only: no dividends, taxes or historical EUR/USD conversion.
+- This is a curated public copy. Market data, model files, the trading code and some private modules are not included, so the experiments cannot be rerun from here. The [chart check](.github/workflows/chart.yml) workflow redraws the charts on every push and checks links and the Leader5 numbers; it does not rerun any experiment.
+- Usable history starts in 2016. The sealed model-selection test period from 2026-07-25 has not been opened.
 
 ## 1. How it got there
 
@@ -101,21 +118,6 @@ What failed:
 - Signals for choosing between models were too weak: regime persistence did not survive costs and agreement between horizons was suggestive only.
 
 These failures are why the demo trades a simple, transparent rule.
-
-## Limitations
-
-- Leader5 is not proven. 2022-2025 was part of the selection criterion, so it is not an independent holdout, and the 2026 figures cover January to July 2026, before the rule was fixed in October. Only the demo account is fresh evidence, and a few weeks of it say little.
-- Backtests are price-only: no dividends, taxes or historical EUR/USD conversion.
-- This is a curated public copy. Market data, model files, the trading code and some private modules are not included, so the experiments cannot be rerun from here. The [chart check](.github/workflows/chart.yml) workflow redraws the charts on every push and checks links and the Leader5 numbers; it does not rerun any experiment.
-- Usable history starts in 2016. The sealed model-selection test period from 2026-07-25 has not been opened.
-
-## My role
-
-I am Nikita Vassiljev ([GitHub](https://github.com/vassiljevnikita-sudo)), the sole human author. I set the goals, designed the research and chose the rules; I built the code and documentation with AI coding agents (OpenAI Codex, Claude). I mostly bullied GPT-5.6 Luna into writing this code, so that's something.
-
-## Tech stack
-
-Research: Python 3 with pandas, NumPy, scikit-learn (ridge regression, histogram gradient boosting), LightGBM on OpenCL, Polars and PyArrow/Parquet; charts with matplotlib. Demo: a Node.js worker against the Trading 212 demo API, Postgres, Kronos-small in Python on the desktop GPU, Supabase for the display, an Expo web app and an Android APK. The demo code is not in this repository.
 
 ## For coding agents
 
