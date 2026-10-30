@@ -1,0 +1,194 @@
+{
+  "strategy": "LEADER5_MOMENTUM_V1",
+  "kind": "fixed trading rule, no learning model",
+  "note": "Compact public summary of the Leader5 selector research (2026-10-11). Price-only backtest in USD normalized to EUR 10,000; no historical EUR/USD conversion, dividends or taxes; 0.25% cost per stock trade side; execution at the next US close. Research only, no real capital, no investment advice.",
+  "rule": {
+    "universe": "30 largest eligible S&P 500 point-in-time members by 63-session average dollar volume (at least 253 closes)",
+    "score": "close[t-5] / close[t-252] - 1 (12-month momentum, skip 5 sessions); only positive scores",
+    "holdings": "top 5 at 20% each; a holding is kept while its rank is 10 or better; empty slots stay in cash",
+    "rebalancing": "decision at each US close, execution at the next session; a kept holding is only re-traded when its weight leaves 20% +/- 2 percentage points",
+    "configuration": {
+      "U": 30,
+      "K": 5,
+      "L": 252,
+      "trend": 0,
+      "freq": "D",
+      "fill": "cash",
+      "buffer": true,
+      "regime": "none",
+      "absmom": "m252",
+      "sat": null,
+      "band": 0.02
+    }
+  },
+  "selection": {
+    "decidedOn": "2026-10-11",
+    "goal": "user goal set before the grid: at least EUR 2,000 per year above URTH on EUR 10,000",
+    "criterion": "mean yearly excess over URTH of at least EUR 2,000 in BOTH 2017-2021 (Sample) and 2022-2025 (OOS)",
+    "variantsExamined": "about 4,600: 4 V1 variants, 3 Addendum-1 variants, 4,500 grid configurations, 54 extensions, 31 robustness runs",
+    "gridConfigurations": 4500,
+    "gridMeetingSample": 2,
+    "gridMeetingOos": 12,
+    "gridMeetingBoth": 2,
+    "gridMeetingBothNote": "one configuration; the second row is the same rule with idle money in URTH instead of cash",
+    "gridWinnerIsAlsoBestOnSampleAlone": true,
+    "laterChangesJudgedOnBothPeriods": [
+      "absolute momentum filter (improved the worst 2022-2025 year)",
+      "daily instead of weekly decision (removes weekday timing luck)",
+      "2 pp rebalancing band (bands of 1, 3 and 5 pp give similar results)"
+    ],
+    "independentHoldout": false,
+    "caveat": "2022-2025 informed the choice of the rule, so it is not an independent holdout. Only the paper-trading demo from October 2026 on is fresh evidence."
+  },
+  "periods": {
+    "sample": {
+      "label": "Sample 2017-2021 (rule development)",
+      "meanExcessEURPerYear": 1657.53,
+      "worstYearExcessEUR": -3032.06,
+      "meanReturnEURPerYear": 2994.34,
+      "calendarYears": 5,
+      "file": "leader-sample.json",
+      "start": "2017-01-17",
+      "end": "2021-12-31",
+      "points": 1250,
+      "startEUR": 10000,
+      "terminalEUR": 32021.08,
+      "urthTerminalEUR": 18107.85,
+      "terminalDifferenceEUR": 13913.22,
+      "maxDrawdown": -0.3503,
+      "maxDrawdownRelativeToUrth": -0.3611,
+      "cagr": 0.2649,
+      "urthCagr": 0.1274,
+      "qualification": "HISTORICAL_RULE_DEVELOPMENT"
+    },
+    "oos": {
+      "label": "OOS 2022-2025 (validation, also used in rule selection)",
+      "meanExcessEURPerYear": 2327.7,
+      "worstYearExcessEUR": -174.16,
+      "meanReturnEURPerYear": 3299.15,
+      "calendarYears": 4,
+      "file": "leader-oos.json",
+      "start": "2021-12-31",
+      "end": "2025-12-31",
+      "points": 1004,
+      "startEUR": 10000,
+      "terminalEUR": 26803.93,
+      "urthTerminalEUR": 13728.2,
+      "terminalDifferenceEUR": 13075.73,
+      "maxDrawdown": -0.3365,
+      "maxDrawdownRelativeToUrth": -0.2927,
+      "cagr": 0.2795,
+      "urthCagr": 0.0824,
+      "qualification": "HISTORICAL_VALIDATION_ALSO_USED_IN_RULE_SELECTION"
+    },
+    "2026": {
+      "label": "2026-01-01 to 2026-07-24, computed after the fact",
+      "excessEURInPeriod": 6133.57,
+      "file": "leader-2026.json",
+      "start": "2025-12-31",
+      "end": "2026-07-24",
+      "points": 141,
+      "startEUR": 10000.0,
+      "terminalEUR": 16946.94,
+      "urthTerminalEUR": 10813.37,
+      "terminalDifferenceEUR": 6133.57,
+      "maxDrawdown": -0.2493,
+      "maxDrawdownRelativeToUrth": -0.2473,
+      "qualification": "REPORTING_ONLY_NOT_PROSPECTIVE",
+      "limitation": "uses the current 498-symbol list (survivorship); the rule was fixed in October 2026, so this is not a prospective test"
+    }
+  },
+  "calendarYears": {
+    "2017": {
+      "strategyReturn": 0.369,
+      "urthReturn": 0.179,
+      "excessPp": 19.0,
+      "maxDrawdownInYear": -0.0834,
+      "turnoverNav": 4.04
+    },
+    "2018": {
+      "strategyReturn": 0.037,
+      "urthReturn": -0.1049,
+      "excessPp": 14.2,
+      "maxDrawdownInYear": -0.3503,
+      "turnoverNav": 3.1
+    },
+    "2019": {
+      "strategyReturn": 0.3942,
+      "urthReturn": 0.2524,
+      "excessPp": 14.2,
+      "maxDrawdownInYear": -0.0796,
+      "turnoverNav": 6.87
+    },
+    "2020": {
+      "strategyReturn": 0.7964,
+      "urthReturn": 0.138,
+      "excessPp": 65.8,
+      "maxDrawdownInYear": -0.3202,
+      "turnoverNav": 1.6
+    },
+    "2021": {
+      "strategyReturn": -0.0994,
+      "urthReturn": 0.2038,
+      "excessPp": -30.3,
+      "maxDrawdownInYear": -0.295,
+      "turnoverNav": 7.93
+    },
+    "2022": {
+      "strategyReturn": -0.2101,
+      "urthReturn": -0.1927,
+      "excessPp": -1.7,
+      "maxDrawdownInYear": -0.3107,
+      "turnoverNav": 7.87
+    },
+    "2023": {
+      "strategyReturn": 0.3601,
+      "urthReturn": 0.2176,
+      "excessPp": 14.3,
+      "maxDrawdownInYear": -0.1465,
+      "turnoverNav": 10.61
+    },
+    "2024": {
+      "strategyReturn": 0.7145,
+      "urthReturn": 0.169,
+      "excessPp": 54.6,
+      "maxDrawdownInYear": -0.2937,
+      "turnoverNav": 3.05
+    },
+    "2025": {
+      "strategyReturn": 0.4551,
+      "urthReturn": 0.1947,
+      "excessPp": 26.0,
+      "maxDrawdownInYear": -0.2699,
+      "turnoverNav": 5.35
+    },
+    "2026": {
+      "strategyReturn": 0.6947,
+      "urthReturn": 0.0813,
+      "excessPp": 61.3,
+      "maxDrawdownInYear": -0.2493,
+      "turnoverNav": 3.18
+    }
+  },
+  "meanExcessDefinition": "each calendar year starts at EUR 10,000; excess = (strategy return - URTH return) x EUR 10,000; mean over the calendar years of the period",
+  "paperTradingDemo": {
+    "url": "https://simple-light-qbd.expo.app/graphen",
+    "broker": "Trading 212 demo account, virtual money",
+    "run": "qbd-t212-demo-v3",
+    "start": "2026-10-05",
+    "leader5From": "2026-10-12 (first Leader5 trades; 2026-10-05 to 2026-10-11 ran an earlier model ensemble)",
+    "allocationSince": "2026-10-13: at most 5 stocks and at most 70% in stocks (14% each), the rest in an MSCI World ETF; the backtests above use the 100%/cash allocation and were not recomputed for this"
+  },
+  "limitations": [
+    "about 4,600 configurations examined; 2022-2025 is not a clean holdout",
+    "concentrated (5 names); drawdowns of 34-35% in the backtests",
+    "price-only, USD returns normalized to EUR; no dividends, taxes or historical currency conversion",
+    "2026 uses a current constituent list (survivorship)",
+    "dollar volume is a size proxy"
+  ],
+  "files": [
+    "leader-sample.json",
+    "leader-oos.json",
+    "leader-2026.json"
+  ]
+}

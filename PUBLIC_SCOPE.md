@@ -118,6 +118,7 @@ contract:
 | `stock_predictor/` | `research_model_registry.json`, `project_manifest.json`, `n25_dual_venue.py`, `benchmark_policy.py`, package initializer and README |
 | `stock_predictor/backtests/opportunity_portfolio_research/` | 241 files: Dynamic-QBD factory, replay, evidence, gates, schedulers, self-tests and package documentation |
 | `artifacts/` | 64 compact evidence files: `summary.json`, `REPORT.md`, `contract-audit.json`, `run-contract.json` per run |
+| `artifacts/leader5-selector-development-20261011/` | added 2026-10-30: compact Leader5 summary (`summary.json`) and the three backtest curves already served by the demo (date, strategy value, URTH value per day); no code, input data, account data or order records |
 
 Verified on the published tree: all 209 Python files parse, all 37 JSON files are
 valid, and every relative Markdown link resolves.
