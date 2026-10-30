@@ -1,14 +1,18 @@
 """Check the README chart and links against the committed files.
 
 This is an artifact check, not a reproduction of the experiments. It does
-three things, from the repository root:
+four things, from the repository root:
 
-1. Redraws the README chart with make_results_chart.py, which reads only the
-   committed summary.json files listed in that script.
+1. Redraws the README charts with make_results_chart.py and
+   make_leader5_chart.py, which read only the committed result files listed in
+   those scripts.
 2. Compares the redrawn PNGs pixel by pixel with the committed PNGs. PNG
    metadata is ignored. Any changed pixel fails the check.
 3. Checks that every relative link and image path in README.md points to a
    file or directory that exists in the repository.
+4. Checks the Leader5 numbers: the end values in the Leader5 summary.json
+   equal the last points of its committed curves, and the README quotes the
+   summary's end values and mean yearly excess.
 
 Usage:
 
@@ -22,6 +26,7 @@ overwritten by the redraw; run `git diff` afterwards to see any change.
 from __future__ import annotations
 
 import io
+import json
 import re
 import runpy
 import sys
@@ -34,9 +39,12 @@ import matplotlib.image as mpimg  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 CHART_DIR = ROOT / "docs/readme"
-CHART_SCRIPT = CHART_DIR / "make_results_chart.py"
-PNGS = ("results-chart.png", "results-chart-dark.png")
+CHARTS = {
+    "make_results_chart.py": ("results-chart.png", "results-chart-dark.png"),
+    "make_leader5_chart.py": ("leader5-chart.png", "leader5-chart-dark.png"),
+}
 README = ROOT / "README.md"
+LEADER5 = ROOT / "artifacts/leader5-selector-development-20261011"
 
 LINK_PATTERNS = (
     re.compile(r"\]\(([^)\s]+)\)"),  # markdown links and images
@@ -45,10 +53,17 @@ LINK_PATTERNS = (
 
 
 def compare_charts() -> list[str]:
-    committed = {name: (CHART_DIR / name).read_bytes() for name in PNGS}
-    runpy.run_path(str(CHART_SCRIPT), run_name="__main__")
     errors = []
-    for name in PNGS:
+    for script, pngs in CHARTS.items():
+        errors += compare_chart(CHART_DIR / script, pngs)
+    return errors
+
+
+def compare_chart(script: Path, pngs: tuple[str, ...]) -> list[str]:
+    committed = {name: (CHART_DIR / name).read_bytes() for name in pngs}
+    runpy.run_path(str(script), run_name="__main__")
+    errors = []
+    for name in pngs:
         new_bytes = (CHART_DIR / name).read_bytes()
         if new_bytes == committed[name]:
             print(f"chart {name}: byte-identical to the committed file")
@@ -82,13 +97,32 @@ def check_links() -> list[str]:
     return errors
 
 
+def check_leader5() -> list[str]:
+    summary = json.loads((LEADER5 / "summary.json").read_text(encoding="utf-8"))
+    readme = README.read_text(encoding="utf-8")
+    errors = []
+    for key, period in summary["periods"].items():
+        last = json.loads((LEADER5 / period["file"]).read_text(encoding="utf-8"))["points"][-1]
+        for field, curve_field in (("terminalEUR", "navEUR"), ("urthTerminalEUR", "benchmarkNavEUR")):
+            if round(last[curve_field], 2) != period[field]:
+                errors.append(f"Leader5 {key}: {field} {period[field]} differs from {period['file']}")
+            quoted = f"EUR {period[field]:,.0f}"
+            if quoted not in readme:
+                errors.append(f"Leader5 {key}: README does not quote {field} as {quoted}")
+        mean = period.get("meanExcessEURPerYear")
+        if mean is not None and f"EUR {mean:,.0f}" not in readme:
+            errors.append(f"Leader5 {key}: README does not quote the mean yearly excess EUR {mean:,.0f}")
+    print(f"Leader5: {len(summary['periods'])} periods checked against curves and README")
+    return errors
+
+
 def main() -> int:
-    errors = compare_charts() + check_links()
+    errors = compare_charts() + check_links() + check_leader5()
     for error in errors:
         print(f"FAIL {error}")
     if errors:
         return 1
-    print("PASS chart matches the committed summary.json files; README links resolve")
+    print("PASS charts match the committed result files; README links resolve; Leader5 numbers match")
     return 0
 
 
