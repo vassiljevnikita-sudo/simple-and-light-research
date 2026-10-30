@@ -1,6 +1,72 @@
 # simple-and-light-research
 
+Can a stock-picking model be kept up to date over ten years of data without using information it could not have had at the time? This repository holds my research on that question, and most of the answers are "no" or "not yet".
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/readme/results-chart-dark.png">
+  <img alt="Left: one test setting, EUR 10,000 invested from 2020-08-31 to 2023-12-29. Retraining only when a new block of outcomes is complete ends at EUR 15,773, training once ends at EUR 13,462, retraining every month at EUR 10,635, re-tuning the buy threshold every month at EUR 10,385; the URTH index fund ends at EUR 12,920. Right: across all 2,790 model families, retraining on new outcomes changes the yearly return above benchmark by a median of +1.2 percentage points but is better in only 2 of 6 years; retraining every month changes it by -4.8 points and is worse in 4 of 6 years." src="docs/readme/results-chart.png">
+</picture>
+
+The chart is drawn by [docs/readme/make_results_chart.py](docs/readme/make_results_chart.py) from three committed `summary.json` files. Research only: no real money, no live orders, not investment advice.
+
+## Try it
+
+- Demo (web app): [simple-light-qbd.expo.app](https://simple-light-qbd.expo.app/)
+- Rebuild the chart from the committed results: `pip install matplotlib`, then `python docs/readme/make_results_chart.py` from the repository root.
+- Read one result: [the Development Run report](artifacts/dynamic-qbd-development-run-2016-2025-final/REPORT.md) and its [summary.json](artifacts/dynamic-qbd-development-run-2016-2025-final/summary.json).
+
+## My role
+
+Nikita Vassiljev ([GitHub](https://github.com/vassiljevnikita-sudo)), sole author: research design, code, experiments and documentation. I built it with AI coding agents; 4 of the 25 commits in this public copy come from an agent account.
+
+## Tech stack
+
+Python 3 with pandas, NumPy, scikit-learn (Ridge regression and histogram gradient boosting) and PyArrow/Parquet. Large runs use process pools with a fixed memory ceiling. The chart uses matplotlib.
+
+## Limitations
+
+- This is a curated public copy. Market data, model files and some private modules (for example `stock_predictor.v5`) are not included, so the self-tests stop at import and the experiments cannot be rerun from this repository. The chart script is the one thing that runs from a fresh clone.
+- Every number here comes from data before 2026-07-25. The sealed test period that starts on that date has not been opened, so no result has been checked on truly unseen data.
+- Usable history starts in 2016. A replay of the early years cannot pretend that ten years of history already existed.
+- The Fold-Clock studies (retrain only when a new block of outcomes is complete) used model recipes chosen with knowledge of the whole 2016-2025 period. They explain mechanisms; they do not prove that a live system would have made the same choices.
+- The prediction row count below is recorded in [research/DYNAMIC_QBD_DATA_AND_RUNTIME.md](research/DYNAMIC_QBD_DATA_AND_RUNTIME.md). The run's committed `summary.json` holds the family count but not the row count.
+
+## The question
+
+Every trading day a model scores stocks, and a simple rule buys the top-scored ones. Markets change, so the model goes stale. Should it be retrained every month, only when enough new outcomes have arrived, or never? And can a second layer learn which of many models to trust at a given time?
+
+## Method
+
+- Strictly chronological replay. On each simulated day the system sees only data and outcomes that existed on that day. A prediction counts as evidence only after its outcome is known. Training and calibration windows are purged and do not overlap.
+- Trading costs of 20 basis points per round trip are charged. Money not invested in stocks sits in the URTH world index fund, which is also the benchmark.
+- A model family is one combination of three settings: how many trading days ahead the model looks (H, 1 to 30), how long a bought stock is held (D, 1 to H days) and how many stocks are held at most (N, 1 to 6). That gives 6 × (1 + 2 + ... + 30) = 2,790 families.
+- The Development Run over 2016-2025 evaluated all 2,790 families over 119 monthly checkpoints and produced 1,632,350,262 matured prediction rows.
+- Each experiment states its pass/fail gates before it runs. The Fold-Clock gates, for example, require the effect in at least 60% of years and 60% of groups of neighbouring settings, not just on average.
+
+## What worked
+
+- The full evaluation runs on one workstation. The first version ran out of memory when it tried to load all 1.63 billion rows into one table; streamed, resumable aggregation finished the run with a peak of about 5.6 GB.
+- Retraining every calendar month is clearly worse than retraining only when a new block of outcomes is complete: a median of -4.8 percentage points of yearly return above benchmark across the 2,790 families, worse in 4 of 6 years and in 89% of setting groups. This gate passed.
+- Simple portfolio rules held up. Weighting stocks by score did not beat equal weights, and swapping out the weakest holding for a new pick did not beat keeping current holdings.
+- The leakage controls work. The surface-validation run's holdout audit counts 0 records after 2026-07-25, and a requested 2016-2017 replay refused to run because the required history did not exist yet.
+
+## What failed, and why
+
+- No model-picking layer earned the right to choose. In the Development Run all four gates (1, 1B, 2, 3) failed. Single families looked strong in single periods, but those gains did not hold up under the gate checks.
+- Past winners did not keep winning. The ten best historical models, frozen and replayed forward from 2024-01-31 to 2026-07-24, mostly traded little or trailed the benchmark. A version retrained daily made 3 trades, and 0 of 10 models beat the benchmark.
+- Re-tuning only the buy threshold every month hurt. In one setting it ended at EUR 10,385 instead of EUR 13,462, and the largest fall against the benchmark deepened from -28.8% to -59.3%.
+- Fold-Clock retraining looked excellent in that one setting (EUR 15,773). Across all 2,790 families the median gain shrank to +1.2 percentage points a year, it was better in only 2 of 6 years, and in the median setting group the largest fall against the benchmark got 22 points deeper. The gate failed.
+- Signals for choosing between models were too weak: regime persistence did not survive costs, market-state prediction was not robust, and agreement between horizons was suggestive only. The plain model score remained the best selector.
+
+Next step: a model store that keeps every past model version and lets a selector choose only among versions that existed at that point in time. Plan: [research/CAUSAL_MODEL_STORE_ORCHESTRATOR_PLAN.md](research/CAUSAL_MODEL_STORE_ORCHESTRATOR_PLAN.md). Full list of runs: [research/DYNAMIC_QBD_RESULTS_INDEX.md](research/DYNAMIC_QBD_RESULTS_INDEX.md).
+
+## For coding agents
+
+Coding agents start with [AGENTS.md](AGENTS.md). The research map below is the original technical README.
+
+---
+
+## Research map
 
 > Public research snapshot of the Dynamic-QBD / Opportunity-Portfolio program. This repository starts from source snapshot `c196dba496203e803917fd4fff9a03d4df9dc3a2` and intentionally excludes private operational material, credentials, customer data, local machine state, and large licensed/local datasets.
 
